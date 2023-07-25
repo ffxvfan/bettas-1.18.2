@@ -1,0 +1,40 @@
+{
+  "multipart": [
+    {
+      "when":  {"down": "false"},
+      "apply": {"model": "bettas:block/tank_down"}
+    },
+    {
+      "when":  {"north_up": "false"},
+      "apply": {"model": "bettas:block/tank_north_up"}
+    },
+    {
+      "when":  {"east_up": "false"},
+      "apply": {"model": "bettas:block/tank_east_up"}
+    },
+    {
+      "when":  {"south_up": "false"},
+      "apply": {"model": "bettas:block/tank_south_up"}
+    },
+    {
+      "when":  {"west_up": "false"},
+      "apply": {"model": "bettas:block/tank_west_up"}
+    },
+    {
+      "when":  {"north_west": "false"},
+      "apply": {"model": "bettas:block/tank_north_west"}
+    },
+    {
+      "when":  {"north_east": "false"},
+      "apply": {"model": "bettas:block/tank_north_east"}
+    },
+    {
+      "when":  {"south_west": "false"},
+      "apply": {"model": "bettas:block/tank_south_west"}
+    },
+    {
+      "when":  {"south_east": "false"},
+      "apply": {"model": "bettas:block/tank_south_east"}
+    }
+  ]
+}
