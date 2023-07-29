@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraftforge.client.model.data.EmptyModelData;
+import org.jetbrains.annotations.NotNull;
 
 public class TankTileRenderer implements BlockEntityRenderer<TankTile> {
 
@@ -20,7 +21,7 @@ public class TankTileRenderer implements BlockEntityRenderer<TankTile> {
 
 
     @Override
-    public void render(TankTile tankTile, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int lightVal, int overlay) {
+    public void render(TankTile tankTile, float partialTicks, PoseStack poseStack, @NotNull MultiBufferSource buffer, int lightVal, int overlay) {
         poseStack.pushPose();
         tankTile.decor.forEach((name, direction) -> {
             switch (name) {

@@ -16,6 +16,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -43,20 +44,16 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
     private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     private static final BooleanProperty DOWN = BlockStateProperties.DOWN;
-    private static final BooleanProperty NORTH_UP = BooleanProperty.create("north_up");
-    private static final BooleanProperty EAST_UP = BooleanProperty.create("east_up");
-    private static final BooleanProperty SOUTH_UP = BooleanProperty.create("south_up");
-    private static final BooleanProperty WEST_UP = BooleanProperty.create("west_up");
-    private static final BooleanProperty NORTH_EAST = BooleanProperty.create("north_east");
-    private static final BooleanProperty NORTH_WEST = BooleanProperty.create("north_west");
-    private static final BooleanProperty SOUTH_EAST = BooleanProperty.create("south_east");
-    private static final BooleanProperty SOUTH_WEST = BooleanProperty.create("south_west");
+    private static final BooleanProperty NORTH = BlockStateProperties.NORTH;
+    private static final BooleanProperty EAST = BlockStateProperties.EAST;
+    private static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
+    private static final BooleanProperty WEST = BlockStateProperties.WEST;
 
     private static final VoxelShape NORTH_VOXEL = Shapes.or(Block.box(0, 0, 0, 16, 16, 0.5), Block.box(0.5, 15.5, 0, 15.5, 16, 0.5));
     private static final VoxelShape EAST_VOXEL = Shapes.or(Block.box(15.5, 0, 0, 16, 16, 16), Block.box(15.5, 15.5, 0.5, 16, 16, 15.5));
     private static final VoxelShape SOUTH_VOXEL = Shapes.or(Block.box(0, 0, 15.5, 16, 16, 16), Block.box(0.5, 15.5, 15.5, 15.5, 16, 16));
     private static final VoxelShape WEST_VOXEL = Shapes.or(Block.box(0, 0, 0, 0.5, 16, 16), Block.box(0, 15.5, 0.5, 0.5, 16, 15.5));
-    private static final VoxelShape DOWN_VOXEL = Block.box(-0.05, -0.05, -0.05, 16.1, 0.5, 16.1);
+    private static final VoxelShape DOWN_VOXEL = Block.box(0, 0, 0, 16, 0.5, 16);
 
     private static final ArrayList<String> DECOR_ITEMS = new ArrayList<>(Arrays.asList("big_log_item", "filter_item", "heater_item", "large_rock_item", "medium_rock_item", "small_log_item", "small_rock_item", "kelp", "seagrass", "sand"));
 
@@ -66,41 +63,31 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
         super(Block.Properties.of(Material.GLASS).noOcclusion().strength(0.7F));
         registerDefaultState(getStateDefinition().any()
                 .setValue(WATERLOGGED, false)
-                .setValue(NORTH_UP, false)
-                .setValue(EAST_UP, false)
-                .setValue(SOUTH_UP, false)
-                .setValue(WEST_UP, false)
-                .setValue(NORTH_EAST, false)
-                .setValue(NORTH_WEST, false)
-                .setValue(SOUTH_EAST, false)
-                .setValue(SOUTH_WEST, false)
+                .setValue(NORTH, false)
+                .setValue(EAST, false)
+                .setValue(SOUTH, false)
+                .setValue(WEST, false)
                 .setValue(DOWN, false)
         );
     }
 
+
+
     @Override
     public BlockState updateShape(BlockState state1, Direction direction, BlockState state2, LevelAccessor levelAccessor, BlockPos pos1, BlockPos pos2) {
         boolean adjacent = state2.is(this);
-        boolean up = adjacent || (state1.getValue(NORTH_UP) && state1.getValue(EAST_UP) && state1.getValue(SOUTH_UP) && state1.getValue(WEST_UP));
         switch (direction) {
-            case UP -> {
-                boolean north = adjacent || (state1.getValue(NORTH_EAST) && state1.getValue(NORTH_WEST));
-                boolean east = adjacent || (state1.getValue(NORTH_EAST) && state1.getValue(SOUTH_EAST));
-                boolean south = adjacent || (state1.getValue(SOUTH_EAST) && state1.getValue(SOUTH_WEST));
-                boolean west = adjacent || (state1.getValue(NORTH_WEST) && state1.getValue(SOUTH_WEST));
-                return state1.setValue(NORTH_UP, north).setValue(EAST_UP, east).setValue(SOUTH_UP, south).setValue(WEST_UP, west);
-            }
             case NORTH -> {
-                return state1.setValue(NORTH_UP, up).setValue(NORTH_EAST, adjacent).setValue(NORTH_WEST, adjacent);
+                return state1.setValue(NORTH, adjacent);
             }
             case EAST -> {
-                return state1.setValue(EAST_UP, up).setValue(NORTH_EAST, adjacent).setValue(SOUTH_EAST, adjacent);
+                return state1.setValue(EAST, adjacent);
             }
             case SOUTH -> {
-                return state1.setValue(SOUTH_UP, up).setValue(SOUTH_EAST, adjacent).setValue(SOUTH_WEST, adjacent);
+                return state1.setValue(SOUTH, adjacent);
             }
             case WEST -> {
-                return state1.setValue(WEST_UP, up).setValue(NORTH_WEST, adjacent).setValue(SOUTH_WEST, adjacent);
+                return state1.setValue(WEST, adjacent);
             }
             case DOWN -> {
                 return state1.setValue(DOWN, adjacent);
@@ -108,6 +95,7 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
         }
         return super.updateShape(state1, direction, state2, levelAccessor, pos1, pos2);
     }
+
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext context) {
@@ -133,7 +121,6 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos pos = context.getClickedPos();
-        boolean up = context.getLevel().getBlockState(pos.above()).getBlock() == this;
         boolean north = context.getLevel().getBlockState(pos.north()).getBlock() == this;
         boolean east = context.getLevel().getBlockState(pos.east()).getBlock() == this;
         boolean south = context.getLevel().getBlockState(pos.south()).getBlock() == this;
@@ -142,11 +129,10 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
 
         return this.defaultBlockState()
                 .setValue(WATERLOGGED, context.getLevel().getFluidState(pos).getType() == Fluids.WATER)
-                .setValue(NORTH_UP, up).setValue(EAST_UP, up).setValue(SOUTH_UP, up).setValue(WEST_UP, up)
-                .setValue(NORTH_UP, up).setValue(NORTH_EAST, north).setValue(NORTH_WEST, north)
-                .setValue(EAST_UP, up).setValue(NORTH_EAST, east).setValue(SOUTH_EAST, east)
-                .setValue(SOUTH_UP, up).setValue(SOUTH_EAST, south).setValue(SOUTH_WEST, south)
-                .setValue(WEST_UP, up).setValue(NORTH_WEST, west).setValue(SOUTH_WEST, west)
+                .setValue(NORTH, north)
+                .setValue(EAST, east)
+                .setValue(SOUTH, south)
+                .setValue(WEST, west)
                 .setValue(DOWN, down);
     }
 
@@ -166,28 +152,27 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand, BlockHitResult blockRayTraceResult) {
-        if(!world.isClientSide) {
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult blockHitResult) {
+        if(!level.isClientSide) {
             String name = player.getItemInHand(hand).getItem().getRegistryName().getPath();
-            TankTile tankTile = (TankTile) world.getBlockEntity(pos);
+            TankTile tankTile = (TankTile) level.getBlockEntity(pos);
 
-            if(DECOR_ITEMS.contains(name)) {
-                if(tankTile.decor.put(name, player.getDirection().getCounterClockWise()) == null) {
+            if (DECOR_ITEMS.contains(name)) {
+                if (tankTile.decor.put(name, player.getDirection().getCounterClockWise()) == null) {
                     player.getItemInHand(hand).shrink(1);
                 }
-                world.sendBlockUpdated(pos, state, state, 3);
+                level.sendBlockUpdated(pos, state, state, 3);
                 return InteractionResult.CONSUME;
-            } else if(hand == InteractionHand.MAIN_HAND && name.equals("air") && tankTile.decor.size() > 0) {
+            } else if (hand == InteractionHand.MAIN_HAND && name.equals("air") && tankTile.decor.size() > 0) {
                 Map.Entry<String, Direction> decor = (Map.Entry<String, Direction>) tankTile.decor.entrySet().toArray()[tankTile.decor.size() - 1];
                 tankTile.decor.remove(decor.getKey());
-                NetworkManager.INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> (LevelChunk) world.getChunk(pos)), new RemoveDecorRequest(decor.getKey(), pos));
-                world.addFreshEntity(new ItemEntity(world, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, decorMap(decor.getKey())));
-
-                world.sendBlockUpdated(pos, state, state, 3);
+                NetworkManager.INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> (LevelChunk) level.getChunk(pos)), new RemoveDecorRequest(decor.getKey(), pos));
+                level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, decorMap(decor.getKey())));
+                level.sendBlockUpdated(pos, state, state, 3);
                 return InteractionResult.SUCCESS;
             }
         }
-        return super.use(state, world, pos, player, hand, blockRayTraceResult);
+        return super.use(state, level, pos, player, hand, blockHitResult);
     }
 
     public static ItemStack decorMap(String decor) {
@@ -208,7 +193,7 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED, DOWN, NORTH_UP, EAST_UP, SOUTH_UP, WEST_UP, NORTH_EAST, NORTH_WEST, SOUTH_EAST, SOUTH_WEST);
+        builder.add(WATERLOGGED, NORTH, EAST, SOUTH, WEST, DOWN);
     }
 
     @Nullable

@@ -42,29 +42,11 @@ public class TankTile extends BlockEntity {
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        CompoundTag decorNBT = new CompoundTag();
-        decor.forEach((name, direction) -> decorNBT.putInt(name, direction.ordinal()));
-        CompoundTag compoundTag = new CompoundTag();
-        compoundTag.put("decor", decorNBT);
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
-    @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-        CompoundTag compoundTag = pkt.getTag();
-        if(compoundTag != null) {
-            CompoundTag decorTag = compoundTag.getCompound("decor");
-            for(String decorName : decorTag.getAllKeys()) {
-                decor.put(decorName, Direction.values()[decorTag.getInt(decorName)]);
-            }
-        }
-    }
 
-    @Override
-    public void setRemoved() {
-        if (level != null && !level.isClientSide) {
-            decor.forEach((name, direction) -> level.addFreshEntity(new ItemEntity(level, worldPosition.getX() + 0.5, worldPosition.getY() + 0.5, worldPosition.getZ() + 0.5, Tank.decorMap(name))));
-        }
-        super.setRemoved();
+    public CompoundTag getUpdateTag() {
+        return this.saveWithoutMetadata();
     }
 }
