@@ -4,6 +4,8 @@ package com.dragn.bettas.event;
 import com.dragn.bettas.BettasMain;
 import com.dragn.bettas.betta.BettaEntity;
 import com.dragn.bettas.betta.BettaRender;
+import com.dragn.bettas.koi.KoiEntity;
+import com.dragn.bettas.koi.KoiRender;
 import com.dragn.bettas.snail.SnailEntity;
 import com.dragn.bettas.snail.SnailRender;
 import com.dragn.bettas.tank.TankTileRenderer;
@@ -34,6 +36,7 @@ public class BettaEvent {
     public static void entityAttrbiuteCreationEvent(EntityAttributeCreationEvent event) {
         event.put(BettasMain.BETTA_ENTITY.get(), BettaEntity.createAttributes().build());
         event.put(BettasMain.SNAIL_ENTITY.get(), SnailEntity.createAttributes().build());
+        event.put(BettasMain.KOI_ENTITY.get(), KoiEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -42,6 +45,7 @@ public class BettaEvent {
         /* REGISTER RENDERERS */
         EntityRenderers.register(BettasMain.BETTA_ENTITY.get(), BettaRender::new);
         EntityRenderers.register(BettasMain.SNAIL_ENTITY.get(), SnailRender::new);
+        EntityRenderers.register(BettasMain.KOI_ENTITY.get(), KoiRender::new);
 
         /* REGISTER TANK RENDERER */
         ItemBlockRenderTypes.setRenderLayer(BettasMain.TANK.get(), RenderType.cutout());
@@ -49,6 +53,7 @@ public class BettaEvent {
         /* REGISTER BETTA SPAWNING */
         SpawnPlacements.register(BettasMain.BETTA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.SNAIL_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnailEntity::checkSnailSpawnRules);
+        SpawnPlacements.register(BettasMain.KOI_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KoiEntity::checkSurfaceWaterAnimalSpawnRules);
     }
 
     @SubscribeEvent
