@@ -27,6 +27,7 @@ public class BettaBiome {
         BiomeDefaultFeatures.commonSpawns(mobSpawnSettings$builder);
         mobSpawnSettings$builder.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(BettasMain.BETTA_ENTITY.get(), 20, 1, 30));
         mobSpawnSettings$builder.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), 10, 1, 20));
+        mobSpawnSettings$builder.addSpawn(MobCategory.WATER_AMBIENT, new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), 10, 1, 20));
         mobSpawnSettings$builder.addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(EntityType.SLIME, 1, 1, 1));
 
         BiomeGenerationSettings.Builder biomeGenerationSettings$builder = new BiomeGenerationSettings.Builder();

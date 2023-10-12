@@ -1,8 +1,10 @@
 {
   "item.bettas.betta_spawn_egg": "Betta Spawn Egg",
   "item.bettas.snail_spawn_egg": "Snail Spawn Egg",
+  "item.bettas.koi_spawn_egg": "Koi Spawn Egg",
   "item.bettas.betta_bucket": "Betta Bucket",
   "item.bettas.snail_bucket": "Snail Bucket",
+  "item.bettas.koi_bucket": "Koi Bucket",
   "item.bettas.heater_item": "Heater",
   "item.bettas.filter_item": "Filter",
   "item.bettas.small_log_item": "Small Log",
@@ -12,6 +14,7 @@
   "item.bettas.large_rock_item": "Large Rock",
   "entity.bettas.betta": "Betta Fish",
   "entity.bettas.snail": "Snail",
+  "entity.bettas.koi": "Koi Fish",
   "itemGroup.betta_tab": "DragN's Betta Fish Mod",
   "block.bettas.tank": "Tank",
   "biome.bettas.betta_biome": "Betta Swamp"
