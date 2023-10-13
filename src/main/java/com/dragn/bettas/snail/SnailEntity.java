@@ -15,6 +15,7 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.MoveControl;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.TryFindWaterGoal;
 import net.minecraft.world.entity.animal.AbstractFish;
@@ -56,8 +57,6 @@ public class SnailEntity extends AbstractFish implements IAnimatable {
             if (this.operation == Operation.MOVE_TO) {
                 this.operation = MoveControl.Operation.WAIT;
                 this.mob.setSpeed((float) (this.speedModifier * this.mob.getAttributeValue(Attributes.MOVEMENT_SPEED)));
-            } else {
-                this.mob.setZza(0f);
             }
         }
     }
@@ -84,7 +83,8 @@ public class SnailEntity extends AbstractFish implements IAnimatable {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new RandomStrollGoal(this, 0.25d, 30));
+        this.goalSelector.addGoal(0, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(1, new RandomStrollGoal(this, 0.25d, 30));
         this.goalSelector.addGoal(2, new TryFindWaterGoal(this));
     }
 

@@ -1,8 +1,8 @@
 package com.dragn.bettas.biome;
 
 import com.dragn.bettas.BettasMain;
+import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.Registry;
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.BiomeDefaultFeatures;
 import net.minecraft.data.worldgen.placement.AquaticPlacements;
 import net.minecraft.resources.ResourceKey;
@@ -11,15 +11,27 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.*;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import terrablender.api.Region;
+import terrablender.api.RegionType;
+
+import java.util.function.Consumer;
 
 public class BettaBiome {
+    public static ResourceKey<Biome> KEY = ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(BettasMain.MODID, "betta_swamp"));
 
-    public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, BettasMain.MODID);
+    public static Biome BETTA_SWAMP = makeBettaBiome().setRegistryName(KEY.location());
 
-    public static final RegistryObject<Biome> BETTA_SWAMP = BIOMES.register("betta_swamp", BettaBiome::makeBettaBiome);
+    public static class BettaRegion extends Region {
+
+        public BettaRegion() {
+            super(new ResourceLocation(BettasMain.MODID, "betta_region"), RegionType.OVERWORLD, 2);
+        }
+
+        @Override
+        public void addBiomes(Registry<Biome> registry, Consumer<Pair<Climate.ParameterPoint, ResourceKey<Biome>>> mapper) {
+            this.addModifiedVanillaOverworldBiomes(mapper, builder -> builder.replaceBiome(Biomes.SWAMP, KEY));
+        }
+    }
 
     private static Biome makeBettaBiome() {
         MobSpawnSettings.Builder mobSpawnSettings$builder = new MobSpawnSettings.Builder();
