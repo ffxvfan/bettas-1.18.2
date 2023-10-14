@@ -42,10 +42,6 @@ public class KoiEntity extends AbstractSchoolingFish implements IAnimatable {
         return 8;
     }
 
-    public ItemStack getBucketItemStack() {
-        return new ItemStack(BettasMain.KOI_BUCKET.get());
-    }
-
     protected SoundEvent getAmbientSound() {
         return SoundEvents.SALMON_AMBIENT;
     }
@@ -87,6 +83,16 @@ public class KoiEntity extends AbstractSchoolingFish implements IAnimatable {
         return factory;
     }
 
+
+    public void saveToBucketTag(ItemStack itemStack) {
+        super.saveToBucketTag(itemStack);
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putInt("Variant", getTexture());
+    }
+    @Override
+    public ItemStack getBucketItemStack() {
+        return BettasMain.KOI_BUCKET.get().getDefaultInstance();
+    }
 
 
 

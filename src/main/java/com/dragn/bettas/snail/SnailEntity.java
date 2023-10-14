@@ -88,6 +88,11 @@ public class SnailEntity extends AbstractFish implements IAnimatable {
         this.goalSelector.addGoal(2, new TryFindWaterGoal(this));
     }
 
+    public void saveToBucketTag(ItemStack itemStack) {
+        super.saveToBucketTag(itemStack);
+        CompoundTag compoundTag = itemStack.getOrCreateTag();
+        compoundTag.putInt("Texture", getTexture());
+    }
     @Override
     public ItemStack getBucketItemStack() {
         return BettasMain.SNAIL_BUCKET.get().getDefaultInstance();
