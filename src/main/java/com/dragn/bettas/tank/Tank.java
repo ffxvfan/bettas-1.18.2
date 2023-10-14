@@ -95,7 +95,7 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
                     level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, itemStack));
                 }
             } else if(Decor.ITEM_TO_DECOR.containsKey(item)) {
-                if(tankTile.addDecor(item, player.getDirection())) {
+                if(tankTile.addDecor(item, player.getDirection().getCounterClockWise())) {
                     player.getItemInHand(hand).shrink(1);
                 }
             }

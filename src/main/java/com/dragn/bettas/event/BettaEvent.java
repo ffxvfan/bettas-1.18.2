@@ -78,12 +78,16 @@ public class BettaEvent {
         IForgeRegistry<Item> registry = event.getRegistry();
 
         BettasMain.BLOCKS.getEntries().forEach(registryObject -> {
-            if(registryObject != null && registryObject.get() instanceof Decor decor && !Decor.DECOR_TO_ITEM.containsKey(decor)) {
-                String name = decor.getRegistryName().getPath();
+            if (registryObject != null) {
+                if (registryObject.get() instanceof Decor.Vanilla decor) {
+                    decor.init();
+                } else if (registryObject.get() instanceof Decor decor) {
+                    String name = decor.getRegistryName().getPath();
 
-                Item item = (new Item(new Item.Properties().tab(BettasMain.BETTAS_TAB))).setRegistryName(name);
-                registry.register(item);
-                Decor.addMappings(decor, item);
+                    Item item = (new Item(new Item.Properties().tab(BettasMain.BETTAS_TAB))).setRegistryName(name);
+                    registry.register(item);
+                    Decor.addMappings(decor, item);
+                }
             }
         });
     }

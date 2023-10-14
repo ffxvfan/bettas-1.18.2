@@ -1,6 +1,8 @@
 package com.dragn.bettas.decor;
 
+import com.dragn.bettas.BettasMain;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -24,7 +26,6 @@ public class Decor extends Block {
 
     private static final Material MATERIAL = new Material(MaterialColor.NONE, false, false, false, false, false, false, PushReaction.IGNORE);
 
-
     public static void addMappings(Decor decor, Item item) {
         ITEM_TO_DECOR.put(item, decor);
         DECOR_TO_ITEM.put(decor, item);
@@ -33,15 +34,22 @@ public class Decor extends Block {
         }
     }
 
+    public static class Vanilla extends Decor {
+        public final Item item;
+
+        public Vanilla(Item item) {
+            super();
+            this.item = item;
+        }
+
+        public void init() {
+            addMappings(this, this.item);
+        }
+    }
+
     public Decor() {
         super(Block.Properties.of(MATERIAL).noOcclusion());
         registerDefaultState(getStateDefinition().any().setValue(FACING, Direction.NORTH));
-    }
-
-    public Decor(Item item) {
-        super(Block.Properties.of(MATERIAL).noOcclusion());
-        registerDefaultState(getStateDefinition().any().setValue(FACING, Direction.NORTH));
-        addMappings(this, item);
     }
 
     public BlockState facing(Direction direction) {

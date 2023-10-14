@@ -62,12 +62,12 @@ public class BettasMain {
         for(String name : plainDecor) {
             BLOCKS.register(name, Decor::new);
         }
-        BLOCKS.register("kelp", () -> new Decor(Items.KELP));
-        BLOCKS.register("seagrass", () -> new Decor(Items.SEAGRASS));
-        BLOCKS.register("substrate", () -> new Decor(Items.SAND));
-        BLOCKS.register("red_substrate", () -> new Decor(Items.RED_SAND));
-        BLOCKS.register("gravel_substrate", () -> new Decor(Items.GRAVEL));
-        BLOCKS.register("dirt_substrate", () -> new Decor(Items.DIRT));
+        BLOCKS.register("kelp", () -> new Decor.Vanilla(Items.KELP));
+        BLOCKS.register("seagrass", () -> new Decor.Vanilla(Items.SEAGRASS));
+        BLOCKS.register("substrate", () -> new Decor.Vanilla(Items.SAND));
+        BLOCKS.register("red_substrate", () -> new Decor.Vanilla(Items.RED_SAND));
+        BLOCKS.register("gravel_substrate", () -> new Decor.Vanilla(Items.GRAVEL));
+        BLOCKS.register("dirt_substrate", () -> new Decor.Vanilla(Items.DIRT));
     }
     public static final RegistryObject<ForgeSpawnEggItem> BETTA_SPAWN_EGG = ITEMS.register("betta_spawn_egg", () -> new ForgeSpawnEggItem(BETTA_ENTITY, 0xC37FCC, 0xEFE9F0, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> SNAIL_SPAWN_EGG = ITEMS.register("snail_spawn_egg", () -> new ForgeSpawnEggItem(SNAIL_ENTITY, 0xf5cb71, 0xad5a0c, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
