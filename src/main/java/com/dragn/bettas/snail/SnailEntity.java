@@ -88,6 +88,8 @@ public class SnailEntity extends AbstractFish implements IAnimatable {
         this.goalSelector.addGoal(2, new TryFindWaterGoal(this));
     }
 
+
+    //Bucket
     public void saveToBucketTag(ItemStack itemStack) {
         super.saveToBucketTag(itemStack);
         CompoundTag compoundTag = itemStack.getOrCreateTag();
