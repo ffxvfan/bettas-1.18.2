@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.client.model.ModelDataManager;
 import net.minecraftforge.client.model.data.IModelData;
 import net.minecraftforge.client.model.data.ModelDataMap;
 import net.minecraftforge.client.model.data.ModelProperty;
@@ -127,47 +125,39 @@ public class TankTile extends BlockEntity {
         return this.shape;
     }
 
+    private void handleModelUpdate() {
+        this.setChanged();
+        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        requestModelDataUpdate();
+    }
+
     public void incrementAlgae() {
         this.algae = Math.min(4, this.algae + 1);
-        this.setChanged();
-        if(this.level.isClientSide) {
-            ModelDataManager.requestModelDataRefresh(this);
-        }
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
-
+        handleModelUpdate();
     }
+
 
     public boolean decrementAlgae() {
         int prev = this.algae;
         this.algae = Math.max(0, this.algae - 1);
         boolean decremented = prev != this.algae;
 
-        this.setChanged();
-        if (this.level.isClientSide) {
-            ModelDataManager.requestModelDataRefresh(this);
-        }
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        handleModelUpdate();
         return decremented;
     }
 
     public void addConnected(Direction direction) {
         this.connected |= 1 << direction.get3DDataValue();
         this.shape = Shapes.join(this.shape, SHAPES[direction.get3DDataValue()], BooleanOp.ONLY_FIRST);
-        this.setChanged();
-        if(this.level.isClientSide) {
-            ModelDataManager.requestModelDataRefresh(this);
-        }
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+
+        handleModelUpdate();
     }
 
     public void removeConnected(Direction direction) {
         this.connected &= ~(1 << direction.get3DDataValue());
         this.shape = Shapes.join(this.shape, SHAPES[direction.get3DDataValue()], BooleanOp.OR);
-        this.setChanged();
-        if(this.level.isClientSide) {
-            ModelDataManager.requestModelDataRefresh(this);
-        }
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+
+        handleModelUpdate();
     }
 
     public ItemStack removeDecor() {
@@ -175,19 +165,8 @@ public class TankTile extends BlockEntity {
         if(state != null) {
             this.setChanged();
             this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
-            return new ItemStack(Decor.DECOR_TO_ITEM.get(state.getBlock()));
         }
         return null;
-    }
-
-    @Override
-    public void setRemoved() {
-        BlockPos pos = this.worldPosition.offset(0.5, 0.5, 0.5);
-        decor.asStream().forEach(k -> {
-            ItemStack itemStack = new ItemStack(Decor.DECOR_TO_ITEM.get(k.getBlock()));
-            this.level.addFreshEntity(new ItemEntity(this.level, pos.getX(), pos.getY(), pos.getZ(), itemStack));
-        });
-        super.setRemoved();
     }
 
     public boolean addDecor(Item item, Direction direction) {

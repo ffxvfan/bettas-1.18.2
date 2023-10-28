@@ -23,12 +23,17 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
 
@@ -103,7 +108,22 @@ public class Tank extends Block implements EntityBlock, SimpleWaterloggedBlock {
         return super.use(state, level, pos, player, hand, blockHitResult);
     }
 
-    @org.jetbrains.annotations.Nullable
+    @Override
+    public void onRemove(BlockState state1, Level level, BlockPos pos, BlockState state2, boolean bool) {
+        if(!state1.is(state2.getBlock())) {
+            BlockPos offset = pos.offset(0.5, 0.5, 0.5);
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if(blockEntity instanceof TankTile) {
+                ((TankTile) blockEntity).allDecor().forEach(k -> {
+                    ItemStack itemStack = new ItemStack(Decor.DECOR_TO_ITEM.get((Decor)(k.getBlock())));
+                    level.addFreshEntity(new ItemEntity(level, offset.getX(), offset.getY(), offset.getZ(), itemStack));
+                    level.updateNeighbourForOutputSignal(pos, this);
+                });
+            }
+        }
+        super.onRemove(state1, level, pos, state2, bool);
+    }
+
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return type == BettasMain.TANK_TILE.get() ? TankTile::tick : null;

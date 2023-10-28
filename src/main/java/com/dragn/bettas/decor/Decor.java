@@ -1,8 +1,6 @@
 package com.dragn.bettas.decor;
 
-import com.dragn.bettas.BettasMain;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;

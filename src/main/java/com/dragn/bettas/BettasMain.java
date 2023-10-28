@@ -6,6 +6,7 @@ import com.dragn.bettas.decor.Decor;
 import com.dragn.bettas.item.AlgaeScraper;
 import com.dragn.bettas.item.AllRound;
 import com.dragn.bettas.koi.KoiEntity;
+import com.dragn.bettas.network.BettaNetwork;
 import com.dragn.bettas.snail.SnailEntity;
 import com.dragn.bettas.tank.Tank;
 import com.dragn.bettas.tank.TankTile;
@@ -115,6 +116,8 @@ public class BettasMain {
     }
 
     public void setup(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> Regions.register(new BettaBiome.BettaRegion()));
+        event.enqueueWork(() -> {
+            Regions.register(new BettaBiome.BettaRegion());
+        });
     }
 }
