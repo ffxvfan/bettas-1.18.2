@@ -1,22 +1,29 @@
 package com.dragn.bettas.fish.saltwater.seahorse;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.freshwater.koi.Variant;
+import com.dragn.bettas.fish.saltwater.seahorse.Variant;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
+import net.minecraft.world.entity.animal.Pufferfish;
+import net.minecraft.world.entity.animal.TropicalFish;
+import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -28,6 +35,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class SeaHorseEntity extends AbstractSchoolingFish implements IAnimatable {
 
@@ -39,24 +47,27 @@ public class SeaHorseEntity extends AbstractSchoolingFish implements IAnimatable
         this.noCulling = true;
     }
 
+    public static boolean checkTropicalFishSpawnRules(EntityType<SeaHorseEntity> p_186232_, LevelAccessor p_186233_, MobSpawnType p_186234_, BlockPos p_186235_, Random p_186236_) {
+        return p_186233_.getFluidState(p_186235_.below()).is(FluidTags.WATER) && p_186233_.getBlockState(p_186235_.above()).is(Blocks.WATER) && (p_186233_.getBiome(p_186235_).is(Biomes.LUSH_CAVES) || WaterAnimal.checkSurfaceWaterAnimalSpawnRules(p_186232_, p_186233_, p_186234_, p_186235_, p_186236_));
+    }
     public int getMaxSchoolSize() {
-        return 8;
+        return 2;
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.SALMON_AMBIENT;
+        return null;
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.SALMON_DEATH;
+        return null;
     }
 
     protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-        return SoundEvents.SALMON_HURT;
+        return null;
     }
 
     protected SoundEvent getFlopSound() {
-        return SoundEvents.SALMON_FLOP;
+        return null;
     }
 
 
@@ -94,7 +105,7 @@ public class SeaHorseEntity extends AbstractSchoolingFish implements IAnimatable
     }
     @Override
     public ItemStack getBucketItemStack() {
-        return BettasMain.KOI_BUCKET.get().getDefaultInstance();
+        return BettasMain.SEAHORSE_BUCKET.get().getDefaultInstance();
     }
 
 

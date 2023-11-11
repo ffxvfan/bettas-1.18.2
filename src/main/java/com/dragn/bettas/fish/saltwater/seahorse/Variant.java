@@ -5,16 +5,19 @@ import net.minecraft.resources.ResourceLocation;
 
 
 public enum Variant {
-    A(new ResourceLocation(BettasMain.MODID, "textures/entity/koi1.png")),
-    B(new ResourceLocation(BettasMain.MODID, "textures/entity/koi2.png")),
-    C(new ResourceLocation(BettasMain.MODID, "textures/entity/koi3.png")),
-    D(new ResourceLocation(BettasMain.MODID, "textures/entity/koi4.png")),
-    E(new ResourceLocation(BettasMain.MODID, "textures/entity/koi5.png")),
-    F(new ResourceLocation(BettasMain.MODID, "textures/entity/koi6.png")),
-    G(new ResourceLocation(BettasMain.MODID, "textures/entity/koi7.png")),
-    H(new ResourceLocation(BettasMain.MODID, "textures/entity/koi8.png")),
-    I(new ResourceLocation(BettasMain.MODID, "textures/entity/koi9.png")),
-    J(new ResourceLocation(BettasMain.MODID, "textures/entity/koi10.png"));
+    A(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_1.png")),
+    B(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_2.png")),
+    C(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_3.png")),
+    D(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_4.png")),
+    E(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_5.png")),
+    F(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_6.png")),
+    G(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_7.png")),
+    H(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_8.png")),
+    I(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_9.png")),
+    J(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_10.png")),
+    K(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_11.png")),
+    L(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_12.png")),
+    M(new ResourceLocation(BettasMain.MODID, "textures/entity/seahorse_13.png"));
 
     public final ResourceLocation resourceLocation;
 
