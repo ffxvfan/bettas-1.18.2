@@ -1,4 +1,4 @@
-package com.dragn.bettas.koi;
+package com.dragn.bettas.fish.freshwater.koi;
 
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

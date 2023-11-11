@@ -5,8 +5,8 @@ import com.dragn.bettas.biome.BettaBiome;
 import com.dragn.bettas.decor.Decor;
 import com.dragn.bettas.item.AlgaeScraper;
 import com.dragn.bettas.item.AllRound;
-import com.dragn.bettas.koi.KoiEntity;
-import com.dragn.bettas.snail.SnailEntity;
+import com.dragn.bettas.fish.freshwater.koi.KoiEntity;
+import com.dragn.bettas.fish.freshwater.snail.SnailEntity;
 import com.dragn.bettas.tank.Tank;
 import com.dragn.bettas.tank.TankTile;
 import net.minecraft.network.FriendlyByteBuf;
@@ -68,6 +68,10 @@ public class BettasMain {
         BLOCKS.register("red_substrate", () -> new Decor.Vanilla(Items.RED_SAND));
         BLOCKS.register("gravel_substrate", () -> new Decor.Vanilla(Items.GRAVEL));
         BLOCKS.register("dirt_substrate", () -> new Decor.Vanilla(Items.DIRT));
+        BLOCKS.register("brain_coral_fan", () -> new Decor.Vanilla(Items.BRAIN_CORAL_FAN));
+        BLOCKS.register("tube_coral_fan", () -> new Decor.Vanilla(Items.TUBE_CORAL_FAN));
+        BLOCKS.register("fire_coral_fan", () -> new Decor.Vanilla(Items.FIRE_CORAL_FAN));
+        BLOCKS.register("sea_pickle", () -> new Decor.Vanilla(Items.SEA_PICKLE));
     }
     public static final RegistryObject<ForgeSpawnEggItem> BETTA_SPAWN_EGG = ITEMS.register("betta_spawn_egg", () -> new ForgeSpawnEggItem(BETTA_ENTITY, 0xC37FCC, 0xEFE9F0, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> SNAIL_SPAWN_EGG = ITEMS.register("snail_spawn_egg", () -> new ForgeSpawnEggItem(SNAIL_ENTITY, 0xf5cb71, 0xad5a0c, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));

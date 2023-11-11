@@ -1,4 +1,4 @@
-package com.dragn.bettas.snail;
+package com.dragn.bettas.fish.freshwater.snail;
 
 import com.dragn.bettas.BettasMain;
 import net.minecraft.core.BlockPos;
