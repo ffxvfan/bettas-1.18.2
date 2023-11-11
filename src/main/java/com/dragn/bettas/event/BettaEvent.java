@@ -10,6 +10,8 @@ import com.dragn.bettas.fish.freshwater.koi.KoiEntity;
 import com.dragn.bettas.fish.freshwater.koi.KoiRender;
 import com.dragn.bettas.fish.freshwater.snail.SnailEntity;
 import com.dragn.bettas.fish.freshwater.snail.SnailRender;
+import com.dragn.bettas.fish.saltwater.clownfish.ClownfishEntity;
+import com.dragn.bettas.fish.saltwater.clownfish.ClownfishRender;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseRender;
 import com.dragn.bettas.tank.TankLoader;
@@ -40,6 +42,7 @@ public class BettaEvent {
         event.put(BettasMain.SNAIL_ENTITY.get(), SnailEntity.createAttributes().build());
         event.put(BettasMain.KOI_ENTITY.get(), KoiEntity.createAttributes().build());
         event.put(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseEntity.createAttributes().build());
+        event.put(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -50,12 +53,14 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.SNAIL_ENTITY.get(), SnailRender::new);
         EntityRenderers.register(BettasMain.KOI_ENTITY.get(), KoiRender::new);
         EntityRenderers.register(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseRender::new);
+        EntityRenderers.register(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishRender::new);
 
         /* REGISTER BETTA SPAWNING */
         SpawnPlacements.register(BettasMain.BETTA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.SNAIL_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnailEntity::checkSnailSpawnRules);
         SpawnPlacements.register(BettasMain.KOI_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KoiEntity::checkSurfaceWaterAnimalSpawnRules);
         SpawnPlacements.register(BettasMain.SEAHORSE_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaHorseEntity::checkTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.CLOWNFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ClownfishEntity::checkTropicalFishSpawnRules);
 
         /* SET BLOCK RENDER LAYERS */
         ItemBlockRenderTypes.setRenderLayer(BettasMain.TANK.get(), RenderType.translucent());

@@ -20,7 +20,8 @@ public class ForgeEvent {
         switch (event.getCategory()) {
 
             case OCEAN -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEAHORSE_ENTITY.get(), 10, 1, 2));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEAHORSE_ENTITY.get(), 8, 1, 2));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CLOWNFISH_ENTITY.get(), 10, 1, 4));
             }
 
             case SWAMP -> {

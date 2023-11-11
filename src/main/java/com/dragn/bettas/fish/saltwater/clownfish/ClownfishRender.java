@@ -1,0 +1,13 @@
+package com.dragn.bettas.fish.saltwater.clownfish;
+
+
+import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
+import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseModel;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
+
+public class ClownfishRender extends GeoEntityRenderer<ClownfishEntity> {
+    public ClownfishRender(EntityRendererProvider.Context renderManager) {
+        super(renderManager, new ClownfishModel());
+    }
+}
