@@ -49,10 +49,10 @@ public class BettasMain {
             return new ItemStack(BETTA_BUCKET.get());
         }
     };
-//    public static final CreativeModeTab TANK_TAB = new CreativeModeTab("tank_tab") {
-//        @Override
-//        public ItemStack makeIcon() { return new ItemStack(TANK_ITEM.get());}
-//    };
+    public static final CreativeModeTab TANK_TAB = new CreativeModeTab("tank_tab") {
+        @Override
+        public ItemStack makeIcon() { return new ItemStack(TANK_ITEM.get());}
+    };
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
@@ -69,7 +69,7 @@ public class BettasMain {
     //SALTWATER
     public static final RegistryObject<EntityType<SeaHorseEntity>> SEAHORSE_ENTITY = ENTITY_TYPES.register("seahorse", () -> EntityType.Builder.of(SeaHorseEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.3f).build(new ResourceLocation(MODID, "seahorse").toString()));
     public static final RegistryObject<EntityType<ClownfishEntity>> CLOWNFISH_ENTITY = ENTITY_TYPES.register("clownfish", () -> EntityType.Builder.of(ClownfishEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.1f).build(new ResourceLocation(MODID, "clownfish").toString()));
-    public static final RegistryObject<EntityType<SeaStarEntity>> SEASTAR_ENTITY = ENTITY_TYPES.register("seastar", () -> EntityType.Builder.of(SeaStarEntity::new, MobCategory.WATER_AMBIENT).sized(0.45f, 0.05f).build(new ResourceLocation(MODID, "seastar").toString()));
+    public static final RegistryObject<EntityType<SeaStarEntity>> SEASTAR_ENTITY = ENTITY_TYPES.register("seastar", () -> EntityType.Builder.of(SeaStarEntity::new, MobCategory.WATER_AMBIENT).sized(0.45f, 0.01f).build(new ResourceLocation(MODID, "seastar").toString()));
 
 
     public static final RegistryObject<Tank> TANK = BLOCKS.register("tank", Tank::new);
@@ -105,7 +105,7 @@ public class BettasMain {
 
 
 
-    public static final RegistryObject<BlockItem> TANK_ITEM = ITEMS.register("tank", () -> new BlockItem(TANK.get(), new Item.Properties().tab(BETTAS_TAB)));
+    public static final RegistryObject<BlockItem> TANK_ITEM = ITEMS.register("tank", () -> new BlockItem(TANK.get(), new Item.Properties().tab(TANK_TAB)));
     public static final RegistryObject<Item> ALGAE_SCRAPER = ITEMS.register("algae_scraper", AlgaeScraper::new);
     public static final RegistryObject<Item> ALLROUND = ITEMS.register("allround", AllRound::new);
     public static final RegistryObject<BlockEntityType<TankTile>> TANK_TILE = TILE_ENTITIES.register("tank_tile", () -> BlockEntityType.Builder.of(TankTile::new, TANK.get()).build(null));

@@ -41,14 +41,13 @@ public class SeaHorseEntity extends AbstractSchoolingFish implements IAnimatable
 
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
-
     public SeaHorseEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
         super(entity, level);
         this.noCulling = true;
     }
 
-    public static boolean checkTropicalFishSpawnRules(EntityType<SeaHorseEntity> p_186232_, LevelAccessor p_186233_, MobSpawnType p_186234_, BlockPos p_186235_, Random p_186236_) {
-        return p_186233_.getFluidState(p_186235_.below()).is(FluidTags.WATER) && p_186233_.getBlockState(p_186235_.above()).is(Blocks.WATER) && (p_186233_.getBiome(p_186235_).is(Biomes.LUSH_CAVES) || WaterAnimal.checkSurfaceWaterAnimalSpawnRules(p_186232_, p_186233_, p_186234_, p_186235_, p_186236_));
+    public static boolean checkTropicalFishSpawnRules(EntityType<SeaHorseEntity> seaHorseEntityEntityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, Random random) {
+        return levelAccessor.getFluidState(blockPos.below()).is(FluidTags.WATER) && levelAccessor.getBlockState(blockPos.above()).is(Blocks.WATER) && (levelAccessor.getBiome(blockPos).is(Biomes.LUSH_CAVES) || WaterAnimal.checkSurfaceWaterAnimalSpawnRules(seaHorseEntityEntityType, levelAccessor, mobSpawnType, blockPos, random));
     }
     public int getMaxSchoolSize() {
         return 2;

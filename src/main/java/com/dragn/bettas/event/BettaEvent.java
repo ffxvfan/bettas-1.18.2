@@ -99,7 +99,7 @@ public class BettaEvent {
                 } else if (registryObject.get() instanceof Decor decor) {
                     String name = decor.getRegistryName().getPath();
 
-                    Item item = (new Item(new Item.Properties().tab(BettasMain.BETTAS_TAB))).setRegistryName(name);
+                    Item item = (new Item(new Item.Properties().tab(BettasMain.TANK_TAB))).setRegistryName(name);
                     registry.register(item);
                     Decor.addMappings(decor, item);
                 }
