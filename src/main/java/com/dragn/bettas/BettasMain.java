@@ -49,6 +49,10 @@ public class BettasMain {
             return new ItemStack(BETTA_BUCKET.get());
         }
     };
+//    public static final CreativeModeTab TANK_TAB = new CreativeModeTab("tank_tab") {
+//        @Override
+//        public ItemStack makeIcon() { return new ItemStack(TANK_ITEM.get());}
+//    };
 
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
