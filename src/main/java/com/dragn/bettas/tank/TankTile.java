@@ -165,6 +165,7 @@ public class TankTile extends BlockEntity {
         if(state != null) {
             this.setChanged();
             this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+            return new ItemStack(Decor.DECOR_TO_ITEM.get(state.getBlock()));
         }
         return null;
     }
