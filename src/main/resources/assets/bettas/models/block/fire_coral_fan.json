@@ -1,0 +1,37 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "block/fire_coral_fan",
+		"particle": "block/fire_coral_fan"
+	},
+	"elements": [
+		{
+			"from": [11.13213, 5.74291, 9.05999],
+			"to": [15.61213, 5.74291, 13.53999],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [13.5, 5.1, 11.29999], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [16, 16, 0, 0], "rotation": 90, "texture": "#0"}
+			}
+		},
+		{
+			"from": [11.13213, 4.45709, 9.05999],
+			"to": [15.61213, 4.45709, 13.53999],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [13.5, 5.1, 11.29999], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#0"},
+				"down": {"uv": [16, 16, 0, 0], "rotation": 90, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

@@ -6,10 +6,24 @@ import com.dragn.bettas.betta.BettaEntity;
 import com.dragn.bettas.betta.BettaRender;
 import com.dragn.bettas.biome.BettaBiome;
 import com.dragn.bettas.decor.Decor;
-import com.dragn.bettas.koi.KoiEntity;
-import com.dragn.bettas.koi.KoiRender;
-import com.dragn.bettas.snail.SnailEntity;
-import com.dragn.bettas.snail.SnailRender;
+import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
+import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbRender;
+import com.dragn.bettas.fish.freshwater.koi.KoiEntity;
+import com.dragn.bettas.fish.freshwater.koi.KoiRender;
+import com.dragn.bettas.fish.freshwater.snail.SnailEntity;
+import com.dragn.bettas.fish.freshwater.snail.SnailRender;
+import com.dragn.bettas.fish.freshwater.tetra.TetraEntity;
+import com.dragn.bettas.fish.freshwater.tetra.TetraRender;
+import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
+import com.dragn.bettas.fish.saltwater.angelfish.AngelfishRender;
+import com.dragn.bettas.fish.saltwater.clownfish.ClownfishEntity;
+import com.dragn.bettas.fish.saltwater.clownfish.ClownfishRender;
+import com.dragn.bettas.fish.saltwater.filefish.FilefishEntity;
+import com.dragn.bettas.fish.saltwater.filefish.FilefishRender;
+import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
+import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseRender;
+import com.dragn.bettas.fish.saltwater.seastar.SeaStarEntity;
+import com.dragn.bettas.fish.saltwater.seastar.SeaStarRender;
 import com.dragn.bettas.tank.TankLoader;
 import com.dragn.bettas.tank.TankTileRenderer;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -18,7 +32,6 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -38,6 +51,14 @@ public class BettaEvent {
         event.put(BettasMain.BETTA_ENTITY.get(), BettaEntity.createAttributes().build());
         event.put(BettasMain.SNAIL_ENTITY.get(), SnailEntity.createAttributes().build());
         event.put(BettasMain.KOI_ENTITY.get(), KoiEntity.createAttributes().build());
+        event.put(BettasMain.TETRA_ENTITY.get(), TetraEntity.createAttributes().build());
+        event.put(BettasMain.CHERRYBARB_ENTITY.get(), CherryBarbEntity.createAttributes().build());
+
+        event.put(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseEntity.createAttributes().build());
+        event.put(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishEntity.createAttributes().build());
+        event.put(BettasMain.SEASTAR_ENTITY.get(), SeaStarEntity.createAttributes().build());
+        event.put(BettasMain.ANGELFISH_ENTITY.get(), SeaStarEntity.createAttributes().build());
+        event.put(BettasMain.FILEFISH_ENTITY.get(), FilefishEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -47,11 +68,28 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.BETTA_ENTITY.get(), BettaRender::new);
         EntityRenderers.register(BettasMain.SNAIL_ENTITY.get(), SnailRender::new);
         EntityRenderers.register(BettasMain.KOI_ENTITY.get(), KoiRender::new);
+        EntityRenderers.register(BettasMain.TETRA_ENTITY.get(), TetraRender::new);
+        EntityRenderers.register(BettasMain.CHERRYBARB_ENTITY.get(), CherryBarbRender::new);
+
+        EntityRenderers.register(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseRender::new);
+        EntityRenderers.register(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishRender::new);
+        EntityRenderers.register(BettasMain.SEASTAR_ENTITY.get(), SeaStarRender::new);
+        EntityRenderers.register(BettasMain.ANGELFISH_ENTITY.get(), AngelfishRender::new);
+        EntityRenderers.register(BettasMain.FILEFISH_ENTITY.get(), FilefishRender::new);
 
         /* REGISTER BETTA SPAWNING */
         SpawnPlacements.register(BettasMain.BETTA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.SNAIL_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnailEntity::checkSnailSpawnRules);
         SpawnPlacements.register(BettasMain.KOI_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KoiEntity::checkSurfaceWaterAnimalSpawnRules);
+        SpawnPlacements.register(BettasMain.TETRA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TetraEntity::checkSurfaceWaterAnimalSpawnRules);
+        SpawnPlacements.register(BettasMain.CHERRYBARB_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CherryBarbEntity::checkSurfaceWaterAnimalSpawnRules);
+
+        SpawnPlacements.register(BettasMain.SEAHORSE_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaHorseEntity::checkTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.CLOWNFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ClownfishEntity::checkTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.SEASTAR_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaStarEntity::checkTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.ANGELFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AngelfishEntity::checkTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.FILEFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FilefishEntity::checkTropicalFishSpawnRules);
+
 
         /* SET BLOCK RENDER LAYERS */
         ItemBlockRenderTypes.setRenderLayer(BettasMain.TANK.get(), RenderType.translucent());
@@ -84,7 +122,7 @@ public class BettaEvent {
                 } else if (registryObject.get() instanceof Decor decor) {
                     String name = decor.getRegistryName().getPath();
 
-                    Item item = (new Item(new Item.Properties().tab(BettasMain.BETTAS_TAB))).setRegistryName(name);
+                    Item item = (new Item(new Item.Properties().tab(BettasMain.TANK_TAB))).setRegistryName(name);
                     registry.register(item);
                     Decor.addMappings(decor, item);
                 }

@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class AlgaeScraper extends Item {
     public AlgaeScraper() {
-        super(new Properties().tab(BettasMain.BETTAS_TAB).durability(64));
+        super(new Properties().tab(BettasMain.TANK_TAB).durability(64));
     }
 
     @Override

@@ -1,0 +1,37 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "block/brain_coral_fan",
+		"particle": "block/brain_coral_fan"
+	},
+	"elements": [
+		{
+			"from": [0.38787, 6.84291, 5.75999],
+			"to": [4.86787, 6.84291, 10.23999],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "z", "origin": [2.5, 6.2, 7.99999], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [16, 16, 0, 0], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"from": [0.38787, 5.55709, 5.75999],
+			"to": [4.86787, 5.55709, 10.23999],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [2.5, 6.2, 7.99999], "rescale": true},
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [16, 16, 0, 0], "rotation": 270, "texture": "#0"}
+			}
+		}
+	],
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class AllRound extends Item {
     public AllRound() {
-        super(new Properties().tab(BettasMain.BETTAS_TAB));
+        super(new Properties().tab(BettasMain.TANK_TAB));
     }
 
     @Override
