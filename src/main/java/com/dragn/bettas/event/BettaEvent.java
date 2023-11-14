@@ -18,6 +18,8 @@ import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
 import com.dragn.bettas.fish.saltwater.angelfish.AngelfishRender;
 import com.dragn.bettas.fish.saltwater.clownfish.ClownfishEntity;
 import com.dragn.bettas.fish.saltwater.clownfish.ClownfishRender;
+import com.dragn.bettas.fish.saltwater.filefish.FilefishEntity;
+import com.dragn.bettas.fish.saltwater.filefish.FilefishRender;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseRender;
 import com.dragn.bettas.fish.saltwater.seastar.SeaStarEntity;
@@ -56,6 +58,7 @@ public class BettaEvent {
         event.put(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishEntity.createAttributes().build());
         event.put(BettasMain.SEASTAR_ENTITY.get(), SeaStarEntity.createAttributes().build());
         event.put(BettasMain.ANGELFISH_ENTITY.get(), SeaStarEntity.createAttributes().build());
+        event.put(BettasMain.FILEFISH_ENTITY.get(), FilefishEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -72,6 +75,7 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishRender::new);
         EntityRenderers.register(BettasMain.SEASTAR_ENTITY.get(), SeaStarRender::new);
         EntityRenderers.register(BettasMain.ANGELFISH_ENTITY.get(), AngelfishRender::new);
+        EntityRenderers.register(BettasMain.FILEFISH_ENTITY.get(), FilefishRender::new);
 
         /* REGISTER BETTA SPAWNING */
         SpawnPlacements.register(BettasMain.BETTA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
@@ -84,6 +88,7 @@ public class BettaEvent {
         SpawnPlacements.register(BettasMain.CLOWNFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ClownfishEntity::checkTropicalFishSpawnRules);
         SpawnPlacements.register(BettasMain.SEASTAR_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaStarEntity::checkTropicalFishSpawnRules);
         SpawnPlacements.register(BettasMain.ANGELFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AngelfishEntity::checkTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.FILEFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FilefishEntity::checkTropicalFishSpawnRules);
 
 
         /* SET BLOCK RENDER LAYERS */
