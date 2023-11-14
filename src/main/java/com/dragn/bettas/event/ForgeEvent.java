@@ -37,6 +37,7 @@ public class ForgeEvent {
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), 1, 1, 5));
             }
             case RIVER -> {
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), 4, 2, 6));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), 4, 2, 6));
             }
             case DESERT -> {
@@ -46,6 +47,8 @@ public class ForgeEvent {
             case NETHER -> {
             }
             case UNDERGROUND -> {
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), 1, 1, 5));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.BETTA_ENTITY.get(), 3, 3, 15));
             }
             case MOUNTAIN -> {
             }
@@ -58,8 +61,10 @@ public class ForgeEvent {
             case MESA -> {
             }
             case PLAINS -> {
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), 4, 2, 6));
             }
             case SAVANNA -> {
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), 4, 2, 6));
             }
             case ICY -> {
             }

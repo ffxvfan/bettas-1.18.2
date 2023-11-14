@@ -6,6 +6,8 @@ import com.dragn.bettas.betta.BettaEntity;
 import com.dragn.bettas.betta.BettaRender;
 import com.dragn.bettas.biome.BettaBiome;
 import com.dragn.bettas.decor.Decor;
+import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
+import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbRender;
 import com.dragn.bettas.fish.freshwater.koi.KoiEntity;
 import com.dragn.bettas.fish.freshwater.koi.KoiRender;
 import com.dragn.bettas.fish.freshwater.snail.SnailEntity;
@@ -48,6 +50,7 @@ public class BettaEvent {
         event.put(BettasMain.SNAIL_ENTITY.get(), SnailEntity.createAttributes().build());
         event.put(BettasMain.KOI_ENTITY.get(), KoiEntity.createAttributes().build());
         event.put(BettasMain.TETRA_ENTITY.get(), TetraEntity.createAttributes().build());
+        event.put(BettasMain.CHERRYBARB_ENTITY.get(), CherryBarbEntity.createAttributes().build());
 
         event.put(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseEntity.createAttributes().build());
         event.put(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishEntity.createAttributes().build());
@@ -63,6 +66,7 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.SNAIL_ENTITY.get(), SnailRender::new);
         EntityRenderers.register(BettasMain.KOI_ENTITY.get(), KoiRender::new);
         EntityRenderers.register(BettasMain.TETRA_ENTITY.get(), TetraRender::new);
+        EntityRenderers.register(BettasMain.CHERRYBARB_ENTITY.get(), CherryBarbRender::new);
 
         EntityRenderers.register(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseRender::new);
         EntityRenderers.register(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishRender::new);
@@ -74,6 +78,7 @@ public class BettaEvent {
         SpawnPlacements.register(BettasMain.SNAIL_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnailEntity::checkSnailSpawnRules);
         SpawnPlacements.register(BettasMain.KOI_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KoiEntity::checkSurfaceWaterAnimalSpawnRules);
         SpawnPlacements.register(BettasMain.TETRA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TetraEntity::checkSurfaceWaterAnimalSpawnRules);
+        SpawnPlacements.register(BettasMain.CHERRYBARB_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CherryBarbEntity::checkSurfaceWaterAnimalSpawnRules);
 
         SpawnPlacements.register(BettasMain.SEAHORSE_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaHorseEntity::checkTropicalFishSpawnRules);
         SpawnPlacements.register(BettasMain.CLOWNFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ClownfishEntity::checkTropicalFishSpawnRules);
