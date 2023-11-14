@@ -11,8 +11,11 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
@@ -37,7 +40,6 @@ import java.util.Random;
 public class AngelfishEntity extends AbstractSchoolingFish implements IAnimatable {
 
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
-
 
     public AngelfishEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
         super(entity, level);
