@@ -108,7 +108,7 @@ public class FilefishEntity extends AbstractFish implements IAnimatable {
     }
     @Override
     public ItemStack getBucketItemStack() {
-        return BettasMain.ANGELFISH_BUCKET.get().getDefaultInstance();
+        return BettasMain.FILEFISH_BUCKET.get().getDefaultInstance();
     }
 
 
