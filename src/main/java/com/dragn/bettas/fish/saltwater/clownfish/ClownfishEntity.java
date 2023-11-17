@@ -1,7 +1,6 @@
 package com.dragn.bettas.fish.saltwater.clownfish;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.saltwater.clownfish.Variant;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;

@@ -1,7 +1,6 @@
 package com.dragn.bettas.fish.freshwater.tetra;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.freshwater.koi.Variant;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;

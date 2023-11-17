@@ -1,8 +1,6 @@
 package com.dragn.bettas.fish.freshwater.tetra;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.freshwater.koi.KoiEntity;
-import com.dragn.bettas.fish.freshwater.koi.Variant;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
