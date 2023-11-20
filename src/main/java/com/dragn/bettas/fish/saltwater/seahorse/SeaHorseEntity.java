@@ -1,7 +1,8 @@
 package com.dragn.bettas.fish.saltwater.seahorse;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.saltwater.seahorse.Variant;
+import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
+import com.dragn.bettas.fish.saltwater.seastar.SeaStarEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -15,8 +16,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
-import net.minecraft.world.entity.animal.Pufferfish;
-import net.minecraft.world.entity.animal.TropicalFish;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -46,8 +45,8 @@ public class SeaHorseEntity extends AbstractSchoolingFish implements IAnimatable
         this.noCulling = true;
     }
 
-    public static boolean checkTropicalFishSpawnRules(EntityType<SeaHorseEntity> seaHorseEntityEntityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, Random random) {
-        return levelAccessor.getFluidState(blockPos.below()).is(FluidTags.WATER) && levelAccessor.getBlockState(blockPos.above()).is(Blocks.WATER) && (levelAccessor.getBiome(blockPos).is(Biomes.LUSH_CAVES) || WaterAnimal.checkSurfaceWaterAnimalSpawnRules(seaHorseEntityEntityType, levelAccessor, mobSpawnType, blockPos, random));
+    public static boolean checkBettasTropicalFishSpawnRules(EntityType<SeaHorseEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
+        return levelAccessor.isWaterAt(pos) && levelAccessor.isWaterAt(pos.north()) && levelAccessor.isWaterAt(pos.east()) && levelAccessor.isWaterAt(pos.south()) && levelAccessor.isWaterAt(pos.west());
     }
     public int getMaxSchoolSize() {
         return 2;

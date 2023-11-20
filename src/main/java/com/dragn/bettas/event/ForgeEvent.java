@@ -1,22 +1,12 @@
 package com.dragn.bettas.event;
 
 import com.dragn.bettas.BettasMain;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.animal.Pufferfish;
-import net.minecraft.world.entity.animal.TropicalFish;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
-import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.checkerframework.checker.units.qual.Temperature;
-
-import static net.minecraft.world.level.biome.Biome.BiomeCategory.SWAMP;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ForgeEvent {
