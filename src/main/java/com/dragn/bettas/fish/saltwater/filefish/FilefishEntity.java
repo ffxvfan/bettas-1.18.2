@@ -1,6 +1,7 @@
 package com.dragn.bettas.fish.saltwater.filefish;
 
 import com.dragn.bettas.BettasMain;
+import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -53,8 +54,8 @@ public class FilefishEntity extends AbstractFish implements IAnimatable {
         this.noCulling = true;
     }
 
-    public static boolean checkTropicalFishSpawnRules(EntityType<FilefishEntity> p_186232_, LevelAccessor p_186233_, MobSpawnType p_186234_, BlockPos p_186235_, Random p_186236_) {
-        return p_186233_.getFluidState(p_186235_.below()).is(FluidTags.WATER) && p_186233_.getBlockState(p_186235_.above()).is(Blocks.WATER) && (p_186233_.getBiome(p_186235_).is(Biomes.LUSH_CAVES) || WaterAnimal.checkSurfaceWaterAnimalSpawnRules(p_186232_, p_186233_, p_186234_, p_186235_, p_186236_));
+    public static boolean checkBettasTropicalFishSpawnRules(EntityType<FilefishEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
+        return levelAccessor.isWaterAt(pos) && levelAccessor.isWaterAt(pos.north()) && levelAccessor.isWaterAt(pos.east()) && levelAccessor.isWaterAt(pos.south()) && levelAccessor.isWaterAt(pos.west());
     }
 
     protected SoundEvent getAmbientSound() {

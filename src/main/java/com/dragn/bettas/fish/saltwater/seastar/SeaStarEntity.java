@@ -1,6 +1,7 @@
 package com.dragn.bettas.fish.saltwater.seastar;
 
 import com.dragn.bettas.BettasMain;
+import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -40,8 +41,8 @@ public class SeaStarEntity extends AbstractFish implements IAnimatable {
 
     private static final EntityDataAccessor<Integer> TEXTURE = SynchedEntityData.defineId(SeaStarEntity.class, EntityDataSerializers.INT);
 
-    public static boolean checkTropicalFishSpawnRules(EntityType<SeaStarEntity> p_186232_, LevelAccessor p_186233_, MobSpawnType p_186234_, BlockPos p_186235_, Random p_186236_) {
-        return p_186233_.getFluidState(p_186235_.below()).is(FluidTags.WATER) && p_186233_.getBlockState(p_186235_.above()).is(Blocks.WATER) && (p_186233_.getBiome(p_186235_).is(Biomes.LUSH_CAVES) || WaterAnimal.checkSurfaceWaterAnimalSpawnRules(p_186232_, p_186233_, p_186234_, p_186235_, p_186236_));
+    public static boolean checkBettasTinyTropicalFishSpawnRules(EntityType<SeaStarEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
+        return levelAccessor.isWaterAt(pos);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
