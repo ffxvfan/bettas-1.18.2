@@ -16,6 +16,8 @@ import com.dragn.bettas.item.AlgaeScraper;
 import com.dragn.bettas.item.AllRound;
 import com.dragn.bettas.tank.Tank;
 import com.dragn.bettas.tank.TankTile;
+import com.dragn.bettas.util.config.BettasClientConfig;
+import com.dragn.bettas.util.config.BettasCommonConfig;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +31,9 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DataSerializerEntry;
@@ -159,6 +163,8 @@ public class BettasMain {
         modEventBus.addListener(this::setup);
 
         GeckoLib.initialize();
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BettasCommonConfig.SPEC, "bettas_aquatics-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
     }

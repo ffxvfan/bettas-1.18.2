@@ -1,6 +1,7 @@
 package com.dragn.bettas.event;
 
 import com.dragn.bettas.BettasMain;
+import com.dragn.bettas.util.config.BettasCommonConfig;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
@@ -15,21 +16,21 @@ public class ForgeEvent {
     public static void registerBiomes(BiomeLoadingEvent event) {
         switch (event.getCategory()) {
             case OCEAN -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.FILEFISH_ENTITY.get(), 5, 1, 1));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.ANGELFISH_ENTITY.get(), 6, 3, 5));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEAHORSE_ENTITY.get(), 8, 1, 2));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CLOWNFISH_ENTITY.get(), 10, 1, 4));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEASTAR_ENTITY.get(), 8, 1, 2));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.FILEFISH_ENTITY.get(), BettasCommonConfig.FILEFISH_WEIGHT.get(), 1, 1));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.ANGELFISH_ENTITY.get(), BettasCommonConfig.ANGELFISH_WEIGHT.get(), 3, 5));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEAHORSE_ENTITY.get(), BettasCommonConfig.SEAHORSE_WEIGHT.get(), 1, 2));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CLOWNFISH_ENTITY.get(), BettasCommonConfig.CLOWNFISH_WEIGHT.get(), 1, 4));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEASTAR_ENTITY.get(), BettasCommonConfig.SEASTAR_WEIGHT.get(), 1, 2));
             }
             case SWAMP -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.TETRA_ENTITY.get(), 4, 2, 6));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), 4, 2, 6));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.BETTA_ENTITY.get(), 3, 3, 15));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), 1, 1, 5));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.TETRA_ENTITY.get(), BettasCommonConfig.TETRA_WEIGHT.get(), 2, 6));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), BettasCommonConfig.KOI_WEIGHT.get(), 2, 6));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.BETTA_ENTITY.get(), BettasCommonConfig.BETTA_WEIGHT.get(), 3, 15));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), BettasCommonConfig.SNAIL_WEIGHT.get(), 1, 5));
             }
             case RIVER -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), 4, 2, 6));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), 4, 2, 6));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), BettasCommonConfig.CHERRYBARB_WEIGHT.get(), 2, 6));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), BettasCommonConfig.KOI_WEIGHT.get(), 2, 6));
             }
             case DESERT -> {
             }
@@ -38,8 +39,8 @@ public class ForgeEvent {
             case NETHER -> {
             }
             case UNDERGROUND -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), 1, 1, 5));
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.BETTA_ENTITY.get(), 3, 3, 15));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SNAIL_ENTITY.get(), BettasCommonConfig.SNAIL_WEIGHT.get(), 1, 5));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.BETTA_ENTITY.get(), BettasCommonConfig.BETTA_WEIGHT.get(), 3, 15));
             }
             case MOUNTAIN -> {
             }
@@ -52,10 +53,8 @@ public class ForgeEvent {
             case MESA -> {
             }
             case PLAINS -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), 4, 2, 6));
             }
             case SAVANNA -> {
-                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), 4, 2, 6));
             }
             case ICY -> {
             }
