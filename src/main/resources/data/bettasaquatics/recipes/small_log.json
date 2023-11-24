@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "AB ",
+    "   "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:oak_log"
+    },
+    "B": {
+      "item": "minecraft:oak_planks"
+    }
+
+  },
+  "result": {
+    "item": "bettasaquatics:small_log",
+    "count": 1
+  }
+}

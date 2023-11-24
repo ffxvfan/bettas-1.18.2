@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AA ",
+    "AA ",
+    "   "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:cobblestone"
+    }
+
+  },
+  "result": {
+    "item": "bettasaquatics:large_rock",
+    "count": 1
+  }
+}

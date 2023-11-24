@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bettasaquatics:item/algae_scraper"
+  }
+}

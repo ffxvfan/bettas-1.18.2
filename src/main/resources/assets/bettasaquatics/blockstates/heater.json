@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettasaquatics:block/heater",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettasaquatics:block/heater"
+    },
+    "facing=south": {
+      "model": "bettasaquatics:block/heater",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettasaquatics:block/heater",
+      "y": 270
+    }
+  }
+}
