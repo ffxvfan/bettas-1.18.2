@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettasaquatics:block/big_log",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettasaquatics:block/big_log"
+    },
+    "facing=south": {
+      "model": "bettasaquatics:block/big_log",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettasaquatics:block/big_log",
+      "y": 270
+    }
+  }
+}

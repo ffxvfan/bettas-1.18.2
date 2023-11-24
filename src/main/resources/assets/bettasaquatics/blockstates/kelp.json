@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettasaquatics:block/kelp",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettasaquatics:block/kelp"
+    },
+    "facing=south": {
+      "model": "bettasaquatics:block/kelp",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettasaquatics:block/kelp",
+      "y": 270
+    }
+  }
+}

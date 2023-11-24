@@ -3,39 +3,45 @@ loaderVersion="[40,)"
 license="All Rights Reserved"
 
 [[mods]]
-modId="bettas"
+modId="bettasaquatics"
 version="${1.1.5}"
-displayName="DragN's Bettas"
+displayName="DragN's Bettas & Aquatics"
 logoFile="temp.png"
 credits="EvangeliX, Code. DragN0007, Assets"
 authors="DragN0007, EvangeliX"
 description='''
-Bettas is a small mod that aims to add cute betta fish to your game. Find the betta biome and browse through over 3400 betta types for your perfect color and pattern scheme for your new aquarium!
+DragN's Bettas & Aquatics is a small mod that aims to add cute betta fish to your game. Find the betta biome and browse through over 3400 betta types for your perfect color and pattern scheme for your new aquarium!
 '''
-[[dependencies.bettas]]
+[[dependencies.bettasaquatics]]
     modId="forge"
     mandatory=true
     versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.bettas]]
+[[dependencies.bettasaquatics]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.18.2,1.19)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.bettas]]
+[[dependencies.bettasaquatics]]
     modId = "geckolib3"
     mandatory = true
     versionRange = "[3.0.57,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.bettas]]
+[[dependencies.bettasaquatics]]
     modId = "terrablender"
     mandatory = true
     versionRange = "[1.2.0.126,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.bettasaquatics]]
+    modId = "bettas"
+    mandatory = true
+    versionRange = "[1.0.0,)"
     ordering="NONE"
     side="BOTH"

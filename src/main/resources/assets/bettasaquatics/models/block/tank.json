@@ -1,0 +1,4 @@
+{
+  "parent": "block/block",
+  "loader": "bettasaquatics:tank_loader"
+}

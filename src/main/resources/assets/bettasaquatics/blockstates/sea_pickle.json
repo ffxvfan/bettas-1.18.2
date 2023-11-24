@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettasaquatics:block/sea_pickle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettasaquatics:block/sea_pickle"
+    },
+    "facing=south": {
+      "model": "bettasaquatics:block/sea_pickle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettasaquatics:block/sea_pickle",
+      "y": 270
+    }
+  }
+}

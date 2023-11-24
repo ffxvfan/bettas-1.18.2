@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "item": "bettasaquatics:betta_bucket"
+    },
+    "title": "Your first Betta",
+    "description": "Capture a Betta fish in a bucket",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "betta_bucket": {
+        "trigger": "minecraft:inventory_changed",
+        "conditions": {
+          "items": [
+            {
+              "items": ["bettasaquatics:betta_bucket"]
+            }
+          ]
+        }
+    }
+  },
+  "requirements": [
+    [
+      "betta_bucket"
+    ]
+  ],
+  "rewards": {
+    "loot": [
+      "bettasaquatics:advancements/betta_guidebook"
+    ]
+  }
+}

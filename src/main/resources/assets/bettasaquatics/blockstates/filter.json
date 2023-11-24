@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettasaquatics:block/filter",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettasaquatics:block/filter"
+    },
+    "facing=south": {
+      "model": "bettasaquatics:block/filter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettasaquatics:block/filter",
+      "y": 270
+    }
+  }
+}

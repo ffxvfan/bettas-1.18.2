@@ -2,6 +2,7 @@ buildscript {
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+
         mavenCentral()
     }
     dependencies {
@@ -19,7 +20,7 @@ apply plugin: 'org.spongepowered.mixin'
 
 
 version = '1.1.5'
-group = 'com.dragn.bettas'
+group = 'com.dragn.bettasaquatics'
 archivesBaseName = 'DragN_Bettas-1.18.2'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -32,9 +33,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'bettas'
+            property 'forge.enabledGameTestNamespaces', 'bettasaquatics'
             mods {
-                bettas {
+                bettasaquatics {
                     source sourceSets.main
                 }
             }
@@ -43,9 +44,9 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'bettas'
+            property 'forge.enabledGameTestNamespaces', 'bettasaquatics'
             mods {
-                bettas {
+                bettasaquatics {
                     source sourceSets.main
                 }
             }
@@ -54,7 +55,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'bettas'
+            property 'forge.enabledGameTestNamespaces', 'bettasaquatics'
             mods {
                 examplemod {
                     source sourceSets.main
@@ -66,7 +67,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            args '--mod', 'bettas', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'bettasaquatics', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
             mods {
                 examplemod {
                     source sourceSets.main
@@ -85,21 +86,28 @@ repositories {
     }
 }
 
+repositories {
+    maven {
+        url "https://cursemaven.com"
+    }
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.0'
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.18:3.0.57')
     implementation fg.deobf('com.github.glitchfiend:TerraBlender-forge:1.18.2-1.2.0.126')
+    implementation fg.deobf("curse.maven:bettas-420951:4051251")
 }
 
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "bettas",
-                "Specification-Vendor"    : "dragnsbettas",
+                "Specification-Title"     : "bettasaquatics",
+                "Specification-Vendor"    : "dragnsbettasaquatics",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "dragnsbettas",
+                "Implementation-Vendor"   : "dragnsbettasaquatics",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
