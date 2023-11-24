@@ -23,7 +23,7 @@ public class BettasCommonConfig {
     static {
         BUILDER.push("Configs for Bettas & Aquatics!");
 
-        ALGAE_GROWTH_RATE = BUILDER.comment("How fast should algae grow? Default is 3 days.")
+        ALGAE_GROWTH_RATE = BUILDER.comment("How long should algae stages take to grow? Default is 3 days.")
                 .define("Algae Growth Rate", 3);
 
 
