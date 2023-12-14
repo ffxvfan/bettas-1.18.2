@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettas:block/shipwreck",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettas:block/shipwreck"
+    },
+    "facing=south": {
+      "model": "bettas:block/shipwreck",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettas:block/shipwreck",
+      "y": 270
+    }
+  }
+}

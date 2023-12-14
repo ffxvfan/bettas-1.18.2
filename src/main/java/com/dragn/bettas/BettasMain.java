@@ -87,7 +87,7 @@ public class BettasMain {
 
     public static final RegistryObject<Tank> TANK = BLOCKS.register("tank", Tank::new);
     static {
-        final String[] plainDecor = {"big_log", "filter", "heater", "large_rock", "medium_rock", "small_log", "small_rock"};
+        final String[] plainDecor = {"big_log", "filter", "heater", "large_rock", "medium_rock", "small_log", "small_rock", "shipwreck"};
         for(String name : plainDecor) {
             BLOCKS.register(name, Decor::new);
         }
