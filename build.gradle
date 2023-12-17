@@ -18,7 +18,7 @@ apply plugin: 'idea'
 apply plugin: 'org.spongepowered.mixin'
 
 
-version = '1.1.5'
+version = '1.1.6'
 group = 'com.dragn.bettas'
 archivesBaseName = 'DragN_Bettas-1.18.2'
 

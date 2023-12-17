@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "A  ",
+    "   "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:moss_block"
+    }
+
+  },
+  "result": {
+    "item": "bettas:mossball_1",
+    "count": 1
+  }
+}
