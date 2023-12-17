@@ -10,6 +10,7 @@
   "item.bettas.seastar_item": "Starfish",
   "item.bettas.angelfish_spawn_egg": "Angelfish Spawn Egg",
   "item.bettas.filefish_spawn_egg": "Filefish Spawn Egg",
+  "item.bettas.seaslug_spawn_egg": "Sea Slug Spawn Egg",
 
   "item.bettas.betta_bucket": "Betta Bucket",
   "item.bettas.snail_bucket": "Snail Bucket",
@@ -21,6 +22,7 @@
   "item.bettas.clownfish_bucket": "Clownfish Bucket",
   "item.bettas.angelfish_bucket": "Angelfish Bucket",
   "item.bettas.filefish_bucket": "Filefish Bucket",
+  "item.bettas.seaslug_bucket": "Sea Slug Bucket",
 
   "entity.bettas.betta": "Betta Fish",
   "entity.bettas.snail": "Mystery Snail",
@@ -33,6 +35,7 @@
   "entity.bettas.seastar": "Starfish",
   "entity.bettas.angelfish": "Angelfish",
   "entity.bettas.filefish": "Filefish",
+  "entity.bettas.seaslug": "Sea Slug",
 
   "block.bettas.tank": "Tank",
   "biome.bettas.betta_biome": "Betta Swamp",

@@ -18,6 +18,7 @@ public class BettasCommonConfig {
     public static final ForgeConfigSpec.ConfigValue<Integer> SEASTAR_WEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> ANGELFISH_WEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> FILEFISH_WEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> SEASLUG_WEIGHT;
 
 
 
@@ -59,6 +60,9 @@ public class BettasCommonConfig {
 
         FILEFISH_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 5.")
                 .define("Filefish Spawn Weight", 5);
+
+        SEASLUG_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 2.")
+                .define("Sea Slug Spawn Weight", 2);
 
 
 
