@@ -1,7 +1,5 @@
 package com.dragn.bettas.fish.saltwater.seaslug;
 
-import com.dragn.bettas.fish.freshwater.snail.SnailEntity;
-import com.dragn.bettas.fish.freshwater.snail.SnailModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib3.renderers.geo.GeoEntityRenderer;
 

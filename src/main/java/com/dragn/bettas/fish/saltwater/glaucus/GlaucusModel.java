@@ -1,7 +1,6 @@
 package com.dragn.bettas.fish.saltwater.glaucus;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.saltwater.clownfish.ClownfishEntity;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 

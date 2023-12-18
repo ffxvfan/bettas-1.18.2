@@ -19,7 +19,6 @@ import com.dragn.bettas.item.AlgaeScraper;
 import com.dragn.bettas.item.AllRound;
 import com.dragn.bettas.tank.Tank;
 import com.dragn.bettas.tank.TankTile;
-import com.dragn.bettas.util.config.BettasClientConfig;
 import com.dragn.bettas.util.config.BettasCommonConfig;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.syncher.EntityDataSerializer;

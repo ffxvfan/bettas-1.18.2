@@ -10,10 +10,12 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.control.MoveControl;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.FollowFlockLeaderGoal;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -77,11 +79,6 @@ public class GlaucusEntity extends AbstractSchoolingFish implements IAnimatable 
 
         return PlayState.CONTINUE;
     }
-
-//    protected void registerGoals() {
-//        super.registerGoals();
-//        this.goalSelector.addGoal(1, new FloatGoal(this));
-//    }
 
     //Controls animations
     @Override
