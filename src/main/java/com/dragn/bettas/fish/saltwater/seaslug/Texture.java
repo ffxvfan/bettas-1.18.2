@@ -8,7 +8,9 @@ public enum Texture {
     B(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_2.png")),
     C(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_3.png")),
     D(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_4.png")),
-    F(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_5.png"));
+    E(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_5.png")),
+    F(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_6.png")),
+    G(new ResourceLocation(BettasMain.MODID, "textures/entity/seaslug_7.png"));
 
     public final ResourceLocation resourceLocation;
 

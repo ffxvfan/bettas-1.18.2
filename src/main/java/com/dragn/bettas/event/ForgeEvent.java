@@ -16,6 +16,7 @@ public class ForgeEvent {
     public static void registerBiomes(BiomeLoadingEvent event) {
         switch (event.getCategory()) {
             case OCEAN -> {
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.GLAUCUS_ENTITY.get(), BettasCommonConfig.GLAUCUS_WEIGHT.get(), 1, 2));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEASLUG_ENTITY.get(), BettasCommonConfig.SEASLUG_WEIGHT.get(), 1, 2));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.FILEFISH_ENTITY.get(), BettasCommonConfig.FILEFISH_WEIGHT.get(), 1, 1));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.ANGELFISH_ENTITY.get(), BettasCommonConfig.ANGELFISH_WEIGHT.get(), 3, 5));
