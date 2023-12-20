@@ -7,6 +7,7 @@ import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
 import com.dragn.bettas.fish.freshwater.goldfish.GoldfishEntity;
 import com.dragn.bettas.fish.freshwater.guppy.GuppyEntity;
 import com.dragn.bettas.fish.freshwater.koi.KoiEntity;
+import com.dragn.bettas.fish.freshwater.silvershark.SilverSharkEntity;
 import com.dragn.bettas.fish.freshwater.snail.SnailEntity;
 import com.dragn.bettas.fish.freshwater.tetra.TetraEntity;
 import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
@@ -79,7 +80,8 @@ public class BettasMain {
     public static final RegistryObject<EntityType<TetraEntity>> TETRA_ENTITY = ENTITY_TYPES.register("tetra", () -> EntityType.Builder.of(TetraEntity::new, MobCategory.WATER_AMBIENT).sized(0.1f, 0.1f).build(new ResourceLocation(MODID, "tetra").toString()));
     public static final RegistryObject<EntityType<CherryBarbEntity>> CHERRYBARB_ENTITY = ENTITY_TYPES.register("cherrybarb", () -> EntityType.Builder.of(CherryBarbEntity::new, MobCategory.WATER_AMBIENT).sized(0.1f, 0.1f).build(new ResourceLocation(MODID, "cherrybarb").toString()));
     public static final RegistryObject<EntityType<GoldfishEntity>> GOLDFISH_ENTITY = ENTITY_TYPES.register("goldfish", () -> EntityType.Builder.of(GoldfishEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.1f).build(new ResourceLocation(MODID, "goldfish").toString()));
-    public static final RegistryObject<EntityType<GuppyEntity>> GUPPY_ENTITY = ENTITY_TYPES.register("guppy", () -> EntityType.Builder.of(GuppyEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.1f).build(new ResourceLocation(MODID, "goldfish").toString()));
+    public static final RegistryObject<EntityType<GuppyEntity>> GUPPY_ENTITY = ENTITY_TYPES.register("guppy", () -> EntityType.Builder.of(GuppyEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.1f).build(new ResourceLocation(MODID, "guppy").toString()));
+    public static final RegistryObject<EntityType<SilverSharkEntity>> SILVERSHARK_ENTITY = ENTITY_TYPES.register("silvershark", () -> EntityType.Builder.of(SilverSharkEntity::new, MobCategory.WATER_AMBIENT).sized(0.7f, 0.4f).build(new ResourceLocation(MODID, "silvershark").toString()));
 
 
     //SALTWATER
@@ -116,6 +118,7 @@ public class BettasMain {
     public static final RegistryObject<ForgeSpawnEggItem> CHERRYBARB_SPAWN_EGG = ITEMS.register("cherrybarb_spawn_egg", () -> new ForgeSpawnEggItem(CHERRYBARB_ENTITY, 0xe22600, 0xe6350a, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> GOLDFISH_SPAWN_EGG = ITEMS.register("goldfish_spawn_egg", () -> new ForgeSpawnEggItem(GOLDFISH_ENTITY, 0xff7300, 0xff9c1b, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> GUPPY_SPAWN_EGG = ITEMS.register("guppy_spawn_egg", () -> new ForgeSpawnEggItem(GUPPY_ENTITY, 0x868882, 0x50deff, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
+    public static final RegistryObject<ForgeSpawnEggItem> SILVERSHARK_SPAWN_EGG = ITEMS.register("silvershark_spawn_egg", () -> new ForgeSpawnEggItem(SILVERSHARK_ENTITY, 0x818181, 0x628fca, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
 
     public static final RegistryObject<ForgeSpawnEggItem> SEAHORSE_SPAWN_EGG = ITEMS.register("seahorse_spawn_egg", () -> new ForgeSpawnEggItem(SEAHORSE_ENTITY, 0xffcba6, 0xb9b6d6, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> CLOWNFISH_SPAWN_EGG = ITEMS.register("clownfish_spawn_egg", () -> new ForgeSpawnEggItem(CLOWNFISH_ENTITY, 0xff4d00, 0xf1f1f1, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
@@ -133,6 +136,7 @@ public class BettasMain {
     public static final RegistryObject<BucketItem> CHERRYBARB_BUCKET = ITEMS.register("cherrybarb_bucket", () -> new MobBucketItem(CHERRYBARB_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
     public static final RegistryObject<BucketItem> GOLDFISH_BUCKET = ITEMS.register("goldfish_bucket", () -> new MobBucketItem(GOLDFISH_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
     public static final RegistryObject<BucketItem> GUPPY_BUCKET = ITEMS.register("guppy_bucket", () -> new MobBucketItem(GUPPY_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
+    public static final RegistryObject<BucketItem> SILVERSHARK_BUCKET = ITEMS.register("silvershark_bucket", () -> new MobBucketItem(SILVERSHARK_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
 
     public static final RegistryObject<BucketItem> SEAHORSE_BUCKET = ITEMS.register("seahorse_bucket", () -> new MobBucketItem(SEAHORSE_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
     public static final RegistryObject<BucketItem> CLOWNFISH_BUCKET = ITEMS.register("clownfish_bucket", () -> new MobBucketItem(CLOWNFISH_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));

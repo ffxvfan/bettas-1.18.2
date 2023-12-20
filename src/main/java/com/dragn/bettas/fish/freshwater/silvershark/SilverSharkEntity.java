@@ -1,4 +1,4 @@
-package com.dragn.bettas.fish.saltwater.glaucus;
+package com.dragn.bettas.fish.freshwater.silvershark;
 
 import com.dragn.bettas.BettasMain;
 import net.minecraft.core.BlockPos;
@@ -30,21 +30,21 @@ import software.bernie.geckolib3.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class GlaucusEntity extends AbstractSchoolingFish implements IAnimatable {
+public class SilverSharkEntity extends AbstractSchoolingFish implements IAnimatable {
 
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 
-    public GlaucusEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
+    public SilverSharkEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
         super(entity, level);
         this.noCulling = true;
     }
 
-    public static boolean checkBettasTropicalFishSpawnRules(EntityType<GlaucusEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
+    public static boolean checkBettasTropicalFishSpawnRules(EntityType<SilverSharkEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
         return levelAccessor.isWaterAt(pos) && levelAccessor.isWaterAt(pos.north()) && levelAccessor.isWaterAt(pos.east()) && levelAccessor.isWaterAt(pos.south()) && levelAccessor.isWaterAt(pos.west());
     }
     public int getMaxSchoolSize() {
-        return 1;
+        return 4;
     }
 
     protected SoundEvent getAmbientSound() {
@@ -76,6 +76,7 @@ public class GlaucusEntity extends AbstractSchoolingFish implements IAnimatable 
         return PlayState.CONTINUE;
     }
 
+
     //Controls animations
     @Override
     public void registerControllers(AnimationData data) {
@@ -100,7 +101,9 @@ public class GlaucusEntity extends AbstractSchoolingFish implements IAnimatable 
         return BettasMain.CLOWNFISH_BUCKET.get().getDefaultInstance();
     }
 
-    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(GlaucusEntity.class, EntityDataSerializers.INT);
+
+
+    private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(SilverSharkEntity.class, EntityDataSerializers.INT);
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();

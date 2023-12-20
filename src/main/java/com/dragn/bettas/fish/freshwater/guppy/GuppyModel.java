@@ -1,8 +1,6 @@
 package com.dragn.bettas.fish.freshwater.guppy;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
-import com.dragn.bettas.fish.freshwater.cherrybarb.Gender;
 import net.minecraft.resources.ResourceLocation;
 import software.bernie.geckolib3.model.AnimatedGeoModel;
 
