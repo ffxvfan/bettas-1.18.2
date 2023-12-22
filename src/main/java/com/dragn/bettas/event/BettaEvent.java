@@ -28,6 +28,8 @@ import com.dragn.bettas.fish.saltwater.filefish.FilefishEntity;
 import com.dragn.bettas.fish.saltwater.filefish.FilefishRender;
 import com.dragn.bettas.fish.saltwater.glaucus.GlaucusEntity;
 import com.dragn.bettas.fish.saltwater.glaucus.GlaucusRender;
+import com.dragn.bettas.fish.saltwater.jelly.JellyEntity;
+import com.dragn.bettas.fish.saltwater.jelly.JellyRender;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseRender;
 import com.dragn.bettas.fish.saltwater.seaslug.SeaSlugEntity;
@@ -74,6 +76,7 @@ public class BettaEvent {
         event.put(BettasMain.FILEFISH_ENTITY.get(), FilefishEntity.createAttributes().build());
         event.put(BettasMain.SEASLUG_ENTITY.get(), SeaSlugEntity.createAttributes().build());
         event.put(BettasMain.GLAUCUS_ENTITY.get(), GlaucusEntity.createAttributes().build());
+        event.put(BettasMain.JELLY_ENTITY.get(), JellyEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -96,6 +99,7 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.FILEFISH_ENTITY.get(), FilefishRender::new);
         EntityRenderers.register(BettasMain.SEASLUG_ENTITY.get(), SeaSlugRender::new);
         EntityRenderers.register(BettasMain.GLAUCUS_ENTITY.get(), GlaucusRender::new);
+        EntityRenderers.register(BettasMain.JELLY_ENTITY.get(), JellyRender::new);
 
 
         /* REGISTER BETTA SPAWNING */
@@ -115,6 +119,7 @@ public class BettaEvent {
         SpawnPlacements.register(BettasMain.FILEFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FilefishEntity::checkBettasTropicalFishSpawnRules);
         SpawnPlacements.register(BettasMain.SEASLUG_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaSlugEntity::checkSnailSpawnRules);
         SpawnPlacements.register(BettasMain.GLAUCUS_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GlaucusEntity::checkBettasTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.JELLY_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyEntity::checkBettasTropicalFishSpawnRules);
 
 
         /* SET BLOCK RENDER LAYERS */
