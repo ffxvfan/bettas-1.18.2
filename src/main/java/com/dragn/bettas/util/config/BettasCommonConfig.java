@@ -23,6 +23,10 @@ public class BettasCommonConfig {
     public static final ForgeConfigSpec.ConfigValue<Integer> GUPPY_WEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> SILVERSHARK_WEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> JELLY_WEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> GHOSTSHRIMP_WEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> ISOPOD_WEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> SNAKEHEAD_WEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CRAB_WEIGHT;
 
 
 
@@ -54,7 +58,6 @@ public class BettasCommonConfig {
         GUPPY_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 4.")
                 .define("Guppy Spawn Weight", 4);
 
-
         SEAHORSE_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 8.")
                 .define("Seahorse Spawn Weight", 8);
 
@@ -81,6 +84,18 @@ public class BettasCommonConfig {
 
         JELLY_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 1.")
                 .define("Jellyfish Spawn Weight", 1);
+
+        GHOSTSHRIMP_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 2.")
+                .define("Ghost Shrimp Spawn Weight", 2);
+
+        ISOPOD_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 1.")
+                .define("Isopod Spawn Weight", 1);
+
+        SNAKEHEAD_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 1.")
+                .define("Rainbow Snakehead Spawn Weight", 1);
+
+        CRAB_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 3.")
+                .define("Dwarf Crab Spawn Weight", 3);
 
 
 
