@@ -2,6 +2,7 @@ package com.dragn.bettas.tank;
 
 import com.dragn.bettas.BettasMain;
 import com.dragn.bettas.decor.Decor;
+import com.dragn.bettas.util.config.BettasCommonConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -102,7 +103,7 @@ public class TankTile extends BlockEntity {
     }
 
     // 24000 ticks in a minecraft day, algae increments every 3 days
-    private final long threshold = 24000 * 3;
+    private final long threshold = 24000 * BettasCommonConfig.ALGAE_GROWTH_RATE.get();
     private long age = 0;
 
     public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T blockEntity) {
