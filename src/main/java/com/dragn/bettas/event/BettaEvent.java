@@ -10,6 +10,8 @@ import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
 import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbRender;
 import com.dragn.bettas.fish.freshwater.ghostshrimp.GhostShrimpEntity;
 import com.dragn.bettas.fish.freshwater.ghostshrimp.GhostShrimpRender;
+import com.dragn.bettas.fish.freshwater.glowfish.GlowFishEntity;
+import com.dragn.bettas.fish.freshwater.glowfish.GlowFishRender;
 import com.dragn.bettas.fish.freshwater.goldfish.GoldfishEntity;
 import com.dragn.bettas.fish.freshwater.goldfish.GoldfishRender;
 import com.dragn.bettas.fish.freshwater.guppy.GuppyEntity;
@@ -79,6 +81,7 @@ public class BettaEvent {
         event.put(BettasMain.GHOSTSHRIMP_ENTITY.get(), GhostShrimpEntity.createAttributes().build());
         event.put(BettasMain.ISOPOD_ENTITY.get(), IsopodEntity.createAttributes().build());
         event.put(BettasMain.SNAKEHEAD_ENTITY.get(), SnakeheadEntity.createAttributes().build());
+        event.put(BettasMain.GLOWFISH_ENTITY.get(), GlowFishEntity.createAttributes().build());
 
         event.put(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseEntity.createAttributes().build());
         event.put(BettasMain.CLOWNFISH_ENTITY.get(), ClownfishEntity.createAttributes().build());
@@ -106,6 +109,7 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.GHOSTSHRIMP_ENTITY.get(), GhostShrimpRender::new);
         EntityRenderers.register(BettasMain.ISOPOD_ENTITY.get(), IsopodRender::new);
         EntityRenderers.register(BettasMain.SNAKEHEAD_ENTITY.get(), SnakeheadRender::new);
+        EntityRenderers.register(BettasMain.GLOWFISH_ENTITY.get(), GlowFishRender::new);
 
 
         EntityRenderers.register(BettasMain.SEAHORSE_ENTITY.get(), SeaHorseRender::new);

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    " B ",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:glow_ink_sac"
+    },
+    "B": {
+      "item": "bettas:tetra_bucket"
+    }
+
+  },
+  "result": {
+    "item": "bettas:glowfish_bucket",
+    "count": 1
+  }
+}

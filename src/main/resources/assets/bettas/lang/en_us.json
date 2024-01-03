@@ -19,6 +19,7 @@
   "item.bettas.glaucus_spawn_egg": "Blue Glaucus Spawn Egg",
   "item.bettas.jelly_spawn_egg": "Jellyfish Spawn Egg",
   "item.bettas.crab_spawn_egg": "Dwarf Crab Spawn Egg",
+  "item.bettas.glowfish_spawn_egg": "GlowFish Spawn Egg",
 
   "item.bettas.betta_bucket": "Betta Bucket",
   "item.bettas.snail_bucket": "Snail Bucket",
@@ -39,6 +40,7 @@
   "item.bettas.glaucus_bucket": "Blue Glaucus Bucket",
   "item.bettas.jelly_bucket": "Jellyfish Bucket",
   "item.bettas.crab_bucket": "Dwarf Crab Bucket",
+  "item.bettas.glowfish_bucket": "GlowFish Bucket",
 
   "entity.bettas.betta": "Betta Fish",
   "entity.bettas.snail": "Mystery Snail",
@@ -60,6 +62,7 @@
   "entity.bettas.glaucus": "Blue Glaucus",
   "entity.bettas.jelly": "Jellyfish",
   "entity.bettas.crab": "Dwarf Crab",
+  "entity.bettas.glowfish": "GlowFish",
 
   "block.bettas.tank": "Tank",
   "biome.bettas.betta_biome": "Betta Swamp",
