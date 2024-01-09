@@ -101,7 +101,7 @@ public class GuppyEntity extends AbstractSchoolingFish implements IAnimatable {
     }
     @Override
     public ItemStack getBucketItemStack() {
-        return BettasMain.CHERRYBARB_BUCKET.get().getDefaultInstance();
+        return BettasMain.GUPPY_BUCKET.get().getDefaultInstance();
     }
 
 

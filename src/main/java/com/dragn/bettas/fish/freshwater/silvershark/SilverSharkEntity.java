@@ -98,7 +98,7 @@ public class SilverSharkEntity extends AbstractSchoolingFish implements IAnimata
     }
     @Override
     public ItemStack getBucketItemStack() {
-        return BettasMain.CLOWNFISH_BUCKET.get().getDefaultInstance();
+        return BettasMain.SILVERSHARK_BUCKET.get().getDefaultInstance();
     }
 
 

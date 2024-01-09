@@ -97,7 +97,7 @@ public class GlaucusEntity extends AbstractSchoolingFish implements IAnimatable 
     }
     @Override
     public ItemStack getBucketItemStack() {
-        return BettasMain.CLOWNFISH_BUCKET.get().getDefaultInstance();
+        return BettasMain.GLAUCUS_BUCKET.get().getDefaultInstance();
     }
 
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(GlaucusEntity.class, EntityDataSerializers.INT);

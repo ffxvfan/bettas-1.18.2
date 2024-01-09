@@ -98,7 +98,7 @@ public class GoldfishEntity extends AbstractSchoolingFish implements IAnimatable
     }
     @Override
     public ItemStack getBucketItemStack() {
-        return BettasMain.CLOWNFISH_BUCKET.get().getDefaultInstance();
+        return BettasMain.GOLDFISH_BUCKET.get().getDefaultInstance();
     }
 
 
