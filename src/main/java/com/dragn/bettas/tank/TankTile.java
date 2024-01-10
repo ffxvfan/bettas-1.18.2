@@ -6,6 +6,7 @@ import com.dragn.bettas.util.config.BettasCommonConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -103,7 +104,7 @@ public class TankTile extends BlockEntity {
     }
 
     // 24000 ticks in a minecraft day, algae increments every 3 days
-    private final long threshold = 24000 * BettasCommonConfig.ALGAE_GROWTH_RATE.get();
+    private final int threshold = 24000 * BettasCommonConfig.ALGAE_GROWTH_RATE.get();
     private long age = 0;
 
     public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T blockEntity) {
@@ -127,16 +128,17 @@ public class TankTile extends BlockEntity {
     }
 
     private void handleModelUpdate() {
-        this.setChanged();
-        this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
-        requestModelDataUpdate();
+        if(level != null) {
+            this.setChanged();
+            requestModelDataUpdate();
+            this.level.sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        }
     }
 
     public void incrementAlgae() {
         this.algae = Math.min(4, this.algae + 1);
         handleModelUpdate();
     }
-
 
     public boolean decrementAlgae() {
         int prev = this.algae;
@@ -206,12 +208,19 @@ public class TankTile extends BlockEntity {
         this.decor.fromNBT(compoundTag.getCompound("Decor"));
     }
 
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
+        handleModelUpdate();
+    }
+
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
+    @NotNull
     public CompoundTag getUpdateTag() {
         return this.saveWithoutMetadata();
     }
