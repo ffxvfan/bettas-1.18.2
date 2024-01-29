@@ -28,7 +28,6 @@ import com.dragn.bettas.fish.freshwater.snakehead.SnakeheadEntity;
 import com.dragn.bettas.fish.freshwater.snakehead.SnakeheadRender;
 import com.dragn.bettas.fish.freshwater.tetra.TetraEntity;
 import com.dragn.bettas.fish.freshwater.tetra.TetraRender;
-import com.dragn.bettas.fish.saltwater.angelfish.AngelfishEntity;
 import com.dragn.bettas.fish.saltwater.angelfish.AngelfishRender;
 import com.dragn.bettas.fish.saltwater.clownfish.ClownfishEntity;
 import com.dragn.bettas.fish.saltwater.clownfish.ClownfishRender;
@@ -126,24 +125,24 @@ public class BettaEvent {
         /* REGISTER BETTA SPAWNING */
         SpawnPlacements.register(BettasMain.BETTA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.SNAIL_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnailEntity::checkSnailSpawnRules);
-        SpawnPlacements.register(BettasMain.KOI_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, KoiEntity::checkGenericFreshwaterSpawnRules);
-        SpawnPlacements.register(BettasMain.TETRA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, TetraEntity::checkTinyFishSpawnRules);
-        SpawnPlacements.register(BettasMain.CHERRYBARB_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CherryBarbEntity::checkTinyFishSpawnRules);
-        SpawnPlacements.register(BettasMain.GOLDFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GoldfishEntity::checkBettasTropicalFishSpawnRules);
-        SpawnPlacements.register(BettasMain.GUPPY_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GuppyEntity::checkTinyFishSpawnRules);
-        SpawnPlacements.register(BettasMain.SILVERSHARK_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SilverSharkEntity::checkBettasTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.KOI_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.TETRA_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.CHERRYBARB_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.GOLDFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.GUPPY_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.SILVERSHARK_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.GHOSTSHRIMP_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GhostShrimpEntity::checkFloorDwellerSpawnRules);
         SpawnPlacements.register(BettasMain.ISOPOD_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, IsopodEntity::checkFloorDwellerSpawnRules);
-        SpawnPlacements.register(BettasMain.SNAKEHEAD_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnakeheadEntity::checkBettasTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.SNAKEHEAD_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
 
-        SpawnPlacements.register(BettasMain.SEAHORSE_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaHorseEntity::checkBettasTropicalFishSpawnRules);
-        SpawnPlacements.register(BettasMain.CLOWNFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ClownfishEntity::checkBettasTropicalFishSpawnRules);
-        SpawnPlacements.register(BettasMain.SEASTAR_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaStarEntity::checkBettasTinyTropicalFishSpawnRules);
-        SpawnPlacements.register(BettasMain.ANGELFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AngelfishEntity::checkAngelfishSpawnRules);
-        SpawnPlacements.register(BettasMain.FILEFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FilefishEntity::checkBettasTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.SEAHORSE_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.CLOWNFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.SEASTAR_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.ANGELFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.FILEFISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.SEASLUG_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SeaSlugEntity::checkSnailSpawnRules);
-        SpawnPlacements.register(BettasMain.GLAUCUS_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GlaucusEntity::checkBettasTropicalFishSpawnRules);
-        SpawnPlacements.register(BettasMain.JELLY_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, JellyEntity::checkBettasTropicalFishSpawnRules);
+        SpawnPlacements.register(BettasMain.GLAUCUS_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, BettaEntity::checkBettaSpawnRules);
+        SpawnPlacements.register(BettasMain.JELLY_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,BettaEntity::checkBettaSpawnRules);
         SpawnPlacements.register(BettasMain.CRAB_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrabEntity::checkFloorDwellerSpawnRules);
 
 
