@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettas:block/mini_castle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettas:block/mini_castle"
+    },
+    "facing=south": {
+      "model": "bettas:block/mini_castle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettas:block/mini_castle",
+      "y": 270
+    }
+  }
+}

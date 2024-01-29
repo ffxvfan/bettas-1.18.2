@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A A",
+    "AAA",
+    "ABA"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:cobblestone"
+    },
+    "B": {
+      "item": "minecraft:oak_planks"
+    }
+
+  },
+  "result": {
+    "item": "bettas:mini_castle",
+    "count": 1
+  }
+}
