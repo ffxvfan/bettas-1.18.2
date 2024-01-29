@@ -4,7 +4,7 @@ license="All Rights Reserved"
 
 [[mods]]
 modId="bettas"
-version="${1.1.8}"
+version="${1.1.9}"
 displayName="DragN's Bettas"
 logoFile="temp.png"
 credits="EvangeliX, Code. DragN0007, Assets"
