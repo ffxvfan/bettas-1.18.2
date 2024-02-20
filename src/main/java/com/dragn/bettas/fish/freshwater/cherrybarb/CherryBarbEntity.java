@@ -6,10 +6,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
@@ -33,7 +35,6 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class CherryBarbEntity extends AbstractSchoolingFish implements IAnimatable {
-
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 
@@ -104,7 +105,10 @@ public class CherryBarbEntity extends AbstractSchoolingFish implements IAnimatab
         return BettasMain.CHERRYBARB_BUCKET.get().getDefaultInstance();
     }
 
-
+    @Nullable
+    public CherryBarbEntity getBreedOffspring(ServerLevel p_148890_, AgeableMob p_148891_) {
+        return BettasMain.CHERRYBARB_ENTITY.get().create(p_148890_);
+    }
 
     private static final EntityDataAccessor<Integer> GENDER = SynchedEntityData.defineId(CherryBarbEntity.class, EntityDataSerializers.INT);
     @Override

@@ -10,6 +10,9 @@ public enum Gender {
 
     public final ResourceLocation resourceLocation;
 
+    public static final ResourceLocation BABY_TEXTURE = new ResourceLocation(BettasMain.MODID, "textures/entities/fry.png");
+
+
     Gender(ResourceLocation resourceLocation) {
         this.resourceLocation = resourceLocation;
     }

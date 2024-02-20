@@ -1,10 +1,8 @@
 package com.dragn.bettas.world.gen;
 
-import com.dragn.bettas.BettasMain;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 
@@ -13,8 +11,8 @@ import java.util.List;
 
 public class FishSpawnGeneration {
     public static void onEntitySpawn(final BiomeLoadingEvent event) {
-        addEntityToSpecificBiomes(event, BettasMain.KOI_ENTITY.get(),
-                40, 3, 8, Biomes.RIVER, Biomes.SWAMP, Biomes.LUSH_CAVES);
+//        addEntityToSpecificBiomes(event, BettasMain.KOI_ENTITY.get(),
+//                40, 3, 8, Biomes.RIVER, Biomes.SWAMP, Biomes.LUSH_CAVES);
     }
 
 
