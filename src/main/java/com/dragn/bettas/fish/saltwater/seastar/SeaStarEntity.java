@@ -22,6 +22,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.controller.AnimationController;
@@ -36,8 +37,16 @@ public class SeaStarEntity extends AbstractFish implements IAnimatable {
 
     private static final EntityDataAccessor<Integer> TEXTURE = SynchedEntityData.defineId(SeaStarEntity.class, EntityDataSerializers.INT);
 
-    public static boolean checkBettasTinyTropicalFishSpawnRules(EntityType<SeaStarEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
-        return levelAccessor.isWaterAt(pos);
+    public static boolean checkBettasAquaticsSpawnRules(EntityType<SeaStarEntity> entity, LevelAccessor level, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
+        int seaLevel = level.getSeaLevel();
+        int depthMin = seaLevel - 13;
+        return pos.getY() >= depthMin && pos.getY() <= seaLevel
+                && level.getBlockState(pos.below()).is(Blocks.WATER)
+                && level.getBlockState(pos.above()).is(Blocks.WATER)
+                && level.getBlockState(pos.east()).is(Blocks.WATER)
+                && level.getBlockState(pos.west()).is(Blocks.WATER)
+                && level.getBlockState(pos.north()).is(Blocks.WATER)
+                && level.getBlockState(pos.south()).is(Blocks.WATER);
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -65,7 +74,7 @@ public class SeaStarEntity extends AbstractFish implements IAnimatable {
 
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
-    public SeaStarEntity(EntityType<? extends AbstractFish> entityType, Level world) {
+    public SeaStarEntity(EntityType<? extends SeaStarEntity> entityType, Level world) {
         super(entityType, world);
         this.moveControl = new SeaStarMovementController(this);
         this.noCulling = true;

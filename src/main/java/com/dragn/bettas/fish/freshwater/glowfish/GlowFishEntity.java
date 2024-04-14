@@ -1,9 +1,6 @@
 package com.dragn.bettas.fish.freshwater.glowfish;
 
 import com.dragn.bettas.BettasMain;
-import com.dragn.bettas.fish.freshwater.goldfish.GoldfishEntity;
-import com.dragn.bettas.fish.freshwater.tetra.Gender;
-import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -16,10 +13,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -32,19 +27,16 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class GlowFishEntity extends AbstractSchoolingFish implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
-    public static boolean checkTinyFishSpawnRules(EntityType<? extends WaterAnimal> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
-        return levelAccessor.isWaterAt(pos);
-    }
-    public GlowFishEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
+    public GlowFishEntity(EntityType<? extends GlowFishEntity> entity, Level level) {
         super(entity, level);
         this.noCulling = true;
         this.entityData.define(DARK_TICKS_REMAINING, 0);
     }
+
     private static final EntityDataAccessor<Integer> DARK_TICKS_REMAINING = SynchedEntityData.defineId(GlowFishEntity.class, EntityDataSerializers.INT);
     private void setDarkTicks(int p_147120_) {
         this.entityData.set(DARK_TICKS_REMAINING, p_147120_);

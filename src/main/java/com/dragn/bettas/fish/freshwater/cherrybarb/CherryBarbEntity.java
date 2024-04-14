@@ -16,11 +16,10 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -37,12 +36,19 @@ import java.util.Random;
 public class CherryBarbEntity extends AbstractSchoolingFish implements IAnimatable {
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
-
-    public static boolean checkTinyFishSpawnRules(EntityType<? extends WaterAnimal> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
-        return levelAccessor.isWaterAt(pos);
+    public static boolean checkBettasAquaticsSpawnRules(EntityType<CherryBarbEntity> entity, ServerLevelAccessor level, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
+        int seaLevel = level.getSeaLevel();
+        int depthMin = seaLevel - 13;
+        return pos.getY() >= depthMin && pos.getY() <= seaLevel
+                && level.getBlockState(pos.below()).is(Blocks.WATER)
+                && level.getBlockState(pos.above()).is(Blocks.WATER)
+                && level.getBlockState(pos.east()).is(Blocks.WATER)
+                && level.getBlockState(pos.west()).is(Blocks.WATER)
+                && level.getBlockState(pos.north()).is(Blocks.WATER)
+                && level.getBlockState(pos.south()).is(Blocks.WATER);
     }
 
-    public CherryBarbEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
+    public CherryBarbEntity(EntityType<? extends CherryBarbEntity> entity, Level level) {
         super(entity, level);
         this.noCulling = true;
     }

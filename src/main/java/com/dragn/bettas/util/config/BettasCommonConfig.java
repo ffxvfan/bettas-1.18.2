@@ -43,8 +43,8 @@ public class BettasCommonConfig {
         SNAIL_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 1.")
                 .define("Snail Spawn Weight", 1);
 
-        KOI_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 4.")
-                .define("Koi Spawn Weight", 4);
+        KOI_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 3.")
+                .define("Koi Spawn Weight", 3);
 
         TETRA_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 4.")
                 .define("Tetra Spawn Weight", 4);

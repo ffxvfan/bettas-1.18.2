@@ -49,36 +49,6 @@ public class ForgeEvent {
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CHERRYBARB_ENTITY.get(), BettasCommonConfig.CHERRYBARB_WEIGHT.get(), 2, 6));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.KOI_ENTITY.get(), BettasCommonConfig.KOI_WEIGHT.get(), 2, 6));
             }
-            case DESERT -> {
-            }
-            case MUSHROOM -> {
-            }
-            case NETHER -> {
-            }
-            case UNDERGROUND -> {
-            }
-            case MOUNTAIN -> {
-            }
-            case TAIGA -> {
-            }
-            case EXTREME_HILLS -> {
-            }
-            case JUNGLE -> {
-            }
-            case MESA -> {
-            }
-            case PLAINS -> {
-            }
-            case SAVANNA -> {
-            }
-            case ICY -> {
-            }
-            case THEEND -> {
-            }
-            case BEACH -> {
-            }
-            case FOREST -> {
-            }
         }
     }
 }

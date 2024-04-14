@@ -15,8 +15,8 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -35,14 +35,23 @@ public class SilverSharkEntity extends AbstractSchoolingFish implements IAnimata
     private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
 
-    public SilverSharkEntity(EntityType<? extends AbstractSchoolingFish> entity, Level level) {
+    public SilverSharkEntity(EntityType<? extends SilverSharkEntity> entity, Level level) {
         super(entity, level);
         this.noCulling = true;
     }
 
-    public static boolean checkBettasTropicalFishSpawnRules(EntityType<SilverSharkEntity> p_186232_, LevelAccessor levelAccessor, MobSpawnType p_186234_, BlockPos pos, Random p_186236_) {
-        return levelAccessor.isWaterAt(pos) && levelAccessor.isWaterAt(pos.north()) && levelAccessor.isWaterAt(pos.east()) && levelAccessor.isWaterAt(pos.south()) && levelAccessor.isWaterAt(pos.west());
+    public static boolean checkBettasAquaticsSpawnRules(EntityType<SilverSharkEntity> entity, ServerLevelAccessor level, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
+        int seaLevel = level.getSeaLevel();
+        int depthMin = seaLevel - 13;
+        return pos.getY() >= depthMin && pos.getY() <= seaLevel
+                && level.getBlockState(pos.below()).is(Blocks.WATER)
+                && level.getBlockState(pos.above()).is(Blocks.WATER)
+                && level.getBlockState(pos.east()).is(Blocks.WATER)
+                && level.getBlockState(pos.west()).is(Blocks.WATER)
+                && level.getBlockState(pos.north()).is(Blocks.WATER)
+                && level.getBlockState(pos.south()).is(Blocks.WATER);
     }
+
     public int getMaxSchoolSize() {
         return 4;
     }

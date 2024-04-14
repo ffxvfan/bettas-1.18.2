@@ -15,11 +15,11 @@ import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.animal.AbstractFish;
-import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
@@ -38,9 +38,16 @@ public class BettaEntity extends AbstractFish implements IAnimatable {
     private static final EntityDataAccessor<Integer> BASE_PATTERN = SynchedEntityData.defineId(BettaEntity.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<int[]> COLOR_MAP =  SynchedEntityData.defineId(BettaEntity.class, (EntityDataSerializer<int[]>) BettasMain.COLOR_SERIALIZER.get().getSerializer());
 
-
-    public static boolean checkBettaSpawnRules(EntityType<? extends WaterAnimal> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
-        return levelAccessor.isWaterAt(pos) && levelAccessor.isWaterAt(pos.north()) && levelAccessor.isWaterAt(pos.east()) && levelAccessor.isWaterAt(pos.south()) && levelAccessor.isWaterAt(pos.west());
+    public static boolean checkBettasAquaticsSpawnRules(EntityType<BettaEntity> entity, LevelAccessor level, MobSpawnType mobSpawnType, BlockPos pos, Random random) {
+        int seaLevel = level.getSeaLevel();
+        int depthMin = seaLevel - 13;
+        return pos.getY() >= depthMin && pos.getY() <= seaLevel
+                && level.getBlockState(pos.below()).is(Blocks.WATER)
+                && level.getBlockState(pos.above()).is(Blocks.WATER)
+                && level.getBlockState(pos.east()).is(Blocks.WATER)
+                && level.getBlockState(pos.west()).is(Blocks.WATER)
+                && level.getBlockState(pos.north()).is(Blocks.WATER)
+                && level.getBlockState(pos.south()).is(Blocks.WATER);
     }
 
     public static int[] generateMap() {

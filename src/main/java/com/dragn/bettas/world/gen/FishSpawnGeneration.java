@@ -12,7 +12,7 @@ import java.util.List;
 public class FishSpawnGeneration {
     public static void onEntitySpawn(final BiomeLoadingEvent event) {
 //        addEntityToSpecificBiomes(event, BettasMain.KOI_ENTITY.get(),
-//                40, 3, 8, Biomes.RIVER, Biomes.SWAMP, Biomes.LUSH_CAVES);
+//                BettasCommonConfig.KOI_WEIGHT.get(), 3, 8, Biomes.RIVER, Biomes.SWAMP);
     }
 
 

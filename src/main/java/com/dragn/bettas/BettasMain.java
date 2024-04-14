@@ -3,6 +3,7 @@ package com.dragn.bettas;
 import com.dragn.bettas.betta.BettaEntity;
 import com.dragn.bettas.biome.BettaBiome;
 import com.dragn.bettas.decor.Decor;
+import com.dragn.bettas.event.BettaEvent;
 import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
 import com.dragn.bettas.fish.freshwater.ghostshrimp.GhostShrimpEntity;
 import com.dragn.bettas.fish.freshwater.glowfish.GlowFishEntity;
@@ -197,6 +198,8 @@ public class BettasMain {
     public BettasMain() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+
         ENTITY_TYPES.register(modEventBus);
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
@@ -216,5 +219,9 @@ public class BettasMain {
         event.enqueueWork(() -> {
             Regions.register(new BettaBiome.BettaRegion());
         });
+    }
+
+    private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(BettaEvent::registerSpawnPlacementsOnServer);
     }
 }
