@@ -20,6 +20,10 @@
   "item.bettas.jelly_spawn_egg": "Jellyfish Spawn Egg",
   "item.bettas.crab_spawn_egg": "Dwarf Crab Spawn Egg",
   "item.bettas.glowfish_spawn_egg": "GlowFish Spawn Egg",
+  "item.bettas.pleco_spawn_egg": "Pleco Spawn Egg",
+  "item.bettas.crystalshrimp_spawn_egg": "Crystal Shrimp Spawn Egg",
+  "item.bettas.salamander_spawn_egg": "Aquatic Salamander Spawn Egg",
+  "item.bettas.seadragon_spawn_egg": "Leafy Seadragon Spawn Egg",
 
   "item.bettas.betta_bucket": "Betta Bucket",
   "item.bettas.snail_bucket": "Snail Bucket",
@@ -41,6 +45,10 @@
   "item.bettas.jelly_bucket": "Jellyfish Bucket",
   "item.bettas.crab_bucket": "Dwarf Crab Bucket",
   "item.bettas.glowfish_bucket": "GlowFish Bucket",
+  "item.bettas.pleco_bucket": "Pleco Bucket",
+  "item.bettas.crystalshrimp_bucket": "Crystal Shrimp Bucket",
+  "item.bettas.salamander_bucket": "Aquatic Salamander Bucket",
+  "item.bettas.seadragon_bucket": "Leafy Seadragon Bucket",
 
   "entity.bettas.betta": "Betta Fish",
   "entity.bettas.snail": "Mystery Snail",
@@ -63,6 +71,10 @@
   "entity.bettas.jelly": "Jellyfish",
   "entity.bettas.crab": "Dwarf Crab",
   "entity.bettas.glowfish": "GlowFish",
+  "entity.bettas.pleco": "Pleco",
+  "entity.bettas.crystalshrimp": "Crystal Shrimp",
+  "entity.bettas.salamander": "Aquatic Salamander",
+  "entity.bettas.seadragon": "Leafy Seadragon",
 
   "block.bettas.tank": "Tank",
   "biome.bettas.betta_biome": "Betta Swamp",
