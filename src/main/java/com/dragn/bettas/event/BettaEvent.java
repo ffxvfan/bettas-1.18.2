@@ -45,6 +45,8 @@ import com.dragn.bettas.fish.saltwater.glaucus.GlaucusEntity;
 import com.dragn.bettas.fish.saltwater.glaucus.GlaucusRender;
 import com.dragn.bettas.fish.saltwater.jelly.JellyEntity;
 import com.dragn.bettas.fish.saltwater.jelly.JellyRender;
+import com.dragn.bettas.fish.saltwater.peacockshrimp.PeacockShrimpEntity;
+import com.dragn.bettas.fish.saltwater.peacockshrimp.PeacockShrimpRender;
 import com.dragn.bettas.fish.saltwater.seadragon.SeadragonEntity;
 import com.dragn.bettas.fish.saltwater.seadragon.SeadragonRender;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
@@ -104,6 +106,7 @@ public class BettaEvent {
         event.put(BettasMain.JELLY_ENTITY.get(), JellyEntity.createAttributes().build());
         event.put(BettasMain.CRAB_ENTITY.get(), CrabEntity.createAttributes().build());
         event.put(BettasMain.SEADRAGON_ENTITY.get(), SeadragonEntity.createAttributes().build());
+        event.put(BettasMain.PEACOCKSHRIMP_ENTITY.get(), PeacockShrimpEntity.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -136,6 +139,7 @@ public class BettaEvent {
         EntityRenderers.register(BettasMain.JELLY_ENTITY.get(), JellyRender::new);
         EntityRenderers.register(BettasMain.CRAB_ENTITY.get(), CrabRender::new);
         EntityRenderers.register(BettasMain.SEADRAGON_ENTITY.get(), SeadragonRender::new);
+        EntityRenderers.register(BettasMain.PEACOCKSHRIMP_ENTITY.get(), PeacockShrimpRender::new);
 
         /* SET BLOCK RENDER LAYERS */
         ItemBlockRenderTypes.setRenderLayer(BettasMain.TANK.get(), RenderType.translucent());
@@ -168,6 +172,7 @@ public class BettaEvent {
         SpawnPlacements.register(BettasMain.JELLY_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules);
         SpawnPlacements.register(BettasMain.CRAB_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules);
         SpawnPlacements.register(BettasMain.SEADRAGON_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules);
+        SpawnPlacements.register(BettasMain.PEACOCKSHRIMP_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, WaterAnimal::checkSurfaceWaterAnimalSpawnRules);
     }
 
     @SubscribeEvent

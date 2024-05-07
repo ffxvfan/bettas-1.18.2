@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettas:block/ledbarlow",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettas:block/ledbarlow"
+    },
+    "facing=south": {
+      "model": "bettas:block/ledbarlow",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettas:block/ledbarlow",
+      "y": 270
+    }
+  }
+}

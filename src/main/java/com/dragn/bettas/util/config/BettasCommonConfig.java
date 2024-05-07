@@ -31,6 +31,7 @@ public class BettasCommonConfig {
     public static final ForgeConfigSpec.ConfigValue<Integer> PLECO_WEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> CRYSTALSHRIMP_WEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> SALAMANDER_WEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> PEACOCKSHRIMP_WEIGHT;
 
 
 
@@ -112,6 +113,9 @@ public class BettasCommonConfig {
 
         SALAMANDER_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 2.")
                 .define("Aquatic Salamander Spawn Weight", 2);
+
+        PEACOCKSHRIMP_WEIGHT = BUILDER.comment("How often should this fish spawn? Default is 2.")
+                .define("Peacock Mantis Shrimp Spawn Weight", 2);
 
 
 

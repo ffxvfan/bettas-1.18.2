@@ -2,6 +2,9 @@ package com.dragn.bettas;
 
 import com.dragn.bettas.betta.BettaEntity;
 import com.dragn.bettas.biome.BettaBiome;
+import com.dragn.bettas.block.LEDBarHigh;
+import com.dragn.bettas.block.LEDBarLow;
+import com.dragn.bettas.block.LEDBarWall;
 import com.dragn.bettas.decor.Decor;
 import com.dragn.bettas.event.BettaEvent;
 import com.dragn.bettas.fish.freshwater.cherrybarb.CherryBarbEntity;
@@ -24,6 +27,7 @@ import com.dragn.bettas.fish.saltwater.crab.CrabEntity;
 import com.dragn.bettas.fish.saltwater.filefish.FilefishEntity;
 import com.dragn.bettas.fish.saltwater.glaucus.GlaucusEntity;
 import com.dragn.bettas.fish.saltwater.jelly.JellyEntity;
+import com.dragn.bettas.fish.saltwater.peacockshrimp.PeacockShrimpEntity;
 import com.dragn.bettas.fish.saltwater.seadragon.SeadragonEntity;
 import com.dragn.bettas.fish.saltwater.seahorse.SeaHorseEntity;
 import com.dragn.bettas.fish.saltwater.seaslug.SeaSlugEntity;
@@ -59,6 +63,7 @@ import software.bernie.geckolib3.GeckoLib;
 import terrablender.api.Regions;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
 @Mod(BettasMain.MODID)
 public class BettasMain {
@@ -112,6 +117,7 @@ public class BettasMain {
     public static final RegistryObject<EntityType<JellyEntity>> JELLY_ENTITY = ENTITY_TYPES.register("jelly", () -> EntityType.Builder.of(JellyEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.3f).build(new ResourceLocation(MODID, "jelly").toString()));
     public static final RegistryObject<EntityType<CrabEntity>> CRAB_ENTITY = ENTITY_TYPES.register("crab", () -> EntityType.Builder.of(CrabEntity::new, MobCategory.WATER_AMBIENT).sized(0.3f, 0.3f).build(new ResourceLocation(MODID, "crab").toString()));
     public static final RegistryObject<EntityType<SeadragonEntity>> SEADRAGON_ENTITY = ENTITY_TYPES.register("seadragon", () -> EntityType.Builder.of(SeadragonEntity::new, MobCategory.WATER_AMBIENT).sized(0.4f, 0.4f).build(new ResourceLocation(MODID, "seadragon").toString()));
+    public static final RegistryObject<EntityType<PeacockShrimpEntity>> PEACOCKSHRIMP_ENTITY = ENTITY_TYPES.register("peacockshrimp", () -> EntityType.Builder.of(PeacockShrimpEntity::new, MobCategory.WATER_AMBIENT).sized(0.4f, 0.4f).build(new ResourceLocation(MODID, "peacockshrimp").toString()));
 
 
     public static final RegistryObject<Tank> TANK = BLOCKS.register("tank", Tank::new);
@@ -159,6 +165,7 @@ public class BettasMain {
     public static final RegistryObject<ForgeSpawnEggItem> JELLY_SPAWN_EGG = ITEMS.register("jelly_spawn_egg", () -> new ForgeSpawnEggItem(JELLY_ENTITY, 0xffb46f, 0xb96767, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> CRAB_SPAWN_EGG = ITEMS.register("crab_spawn_egg", () -> new ForgeSpawnEggItem(CRAB_ENTITY, 0xae4239, 0x812222, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
     public static final RegistryObject<ForgeSpawnEggItem> SEADRAGON_SPAWN_EGG = ITEMS.register("seadragon_spawn_egg", () -> new ForgeSpawnEggItem(SEADRAGON_ENTITY, 0x62785c, 0xe0d385, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
+    public static final RegistryObject<ForgeSpawnEggItem> PEACOCKSHRIMP_SPAWN_EGG = ITEMS.register("peacockshrimp_spawn_egg", () -> new ForgeSpawnEggItem(PEACOCKSHRIMP_ENTITY, 0x827593, 0x769578, new Item.Properties().stacksTo(64).tab(BETTAS_TAB)));
 
 
     public static final RegistryObject<BucketItem> BETTA_BUCKET = ITEMS.register("betta_bucket", () -> new MobBucketItem(BETTA_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
@@ -186,7 +193,15 @@ public class BettasMain {
     public static final RegistryObject<BucketItem> JELLY_BUCKET = ITEMS.register("jelly_bucket", () -> new MobBucketItem(JELLY_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
     public static final RegistryObject<BucketItem> CRAB_BUCKET = ITEMS.register("crab_bucket", () -> new MobBucketItem(CRAB_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
     public static final RegistryObject<BucketItem> SEADRAGON_BUCKET = ITEMS.register("seadragon_bucket", () -> new MobBucketItem(SEADRAGON_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
+    public static final RegistryObject<BucketItem> PEACOCKSHRIMP_BUCKET = ITEMS.register("peacockshrimp_bucket", () -> new MobBucketItem(PEACOCKSHRIMP_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1).tab(BETTAS_TAB)));
 
+
+    public static final RegistryObject<LEDBarLow> LEDBARLOW = registerBlock("ledbarlow",
+            () -> new LEDBarLow());
+    public static final RegistryObject<LEDBarHigh> LEDBARHIGH = registerBlock("ledbarhigh",
+            () -> new LEDBarHigh());
+    public static final RegistryObject<LEDBarWall> LEDBARWALL = registerBlock("ledbarwall",
+            () -> new LEDBarWall());
 
     public static final RegistryObject<BlockItem> TANK_ITEM = ITEMS.register("tank", () -> new BlockItem(TANK.get(), new Item.Properties().tab(TANK_TAB)));
     public static final RegistryObject<Item> ALGAE_SCRAPER = ITEMS.register("algae_scraper", AlgaeScraper::new);
@@ -210,6 +225,15 @@ public class BettasMain {
                 }
             }));
 
+    protected static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+    protected static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+        BettasMain.ITEMS.register(name, () -> new BlockItem(block.get(),
+                new Item.Properties().tab(TANK_TAB)));
+    }
 
     public BettasMain() {
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

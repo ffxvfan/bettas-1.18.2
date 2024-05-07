@@ -27,6 +27,7 @@ public class ForgeEvent {
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.CLOWNFISH_ENTITY.get(), BettasCommonConfig.CLOWNFISH_WEIGHT.get(), 1, 4));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEASTAR_ENTITY.get(), BettasCommonConfig.SEASTAR_WEIGHT.get(), 1, 2));
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.SEADRAGON_ENTITY.get(), BettasCommonConfig.SEADRAGON_WEIGHT.get(), 1, 2));
+                event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.PEACOCKSHRIMP_ENTITY.get(), BettasCommonConfig.PEACOCKSHRIMP_WEIGHT.get(), 1, 1));
             }
             case SWAMP -> {
                 event.getSpawns().getSpawner(MobCategory.WATER_AMBIENT).add(new MobSpawnSettings.SpawnerData(BettasMain.GHOSTSHRIMP_ENTITY.get(), BettasCommonConfig.GHOSTSHRIMP_WEIGHT.get(), 1, 3));

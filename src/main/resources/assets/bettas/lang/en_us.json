@@ -24,6 +24,7 @@
   "item.bettas.crystalshrimp_spawn_egg": "Crystal Shrimp Spawn Egg",
   "item.bettas.salamander_spawn_egg": "Aquatic Salamander Spawn Egg",
   "item.bettas.seadragon_spawn_egg": "Leafy Seadragon Spawn Egg",
+  "item.bettas.peacockshrimp_spawn_egg": "Peacock Mantis Shrimp Spawn Egg",
 
   "item.bettas.betta_bucket": "Betta Bucket",
   "item.bettas.snail_bucket": "Snail Bucket",
@@ -49,6 +50,7 @@
   "item.bettas.crystalshrimp_bucket": "Crystal Shrimp Bucket",
   "item.bettas.salamander_bucket": "Aquatic Salamander Bucket",
   "item.bettas.seadragon_bucket": "Leafy Seadragon Bucket",
+  "item.bettas.peacockshrimp_bucket": "Peacock Mantis Shrimp Bucket",
 
   "entity.bettas.betta": "Betta Fish",
   "entity.bettas.snail": "Mystery Snail",
@@ -75,6 +77,7 @@
   "entity.bettas.crystalshrimp": "Crystal Shrimp",
   "entity.bettas.salamander": "Aquatic Salamander",
   "entity.bettas.seadragon": "Leafy Seadragon",
+  "entity.bettas.peacockshrimp": "Peacock Mantis Shrimp",
 
   "block.bettas.tank": "Tank",
   "biome.bettas.betta_biome": "Betta Swamp",
@@ -91,6 +94,9 @@
   "item.bettas.mini_castle": "Mini Castle",
   "item.bettas.algae_scraper": "Algae Scraper",
   "item.bettas.allround": "DragN's All-Round",
+  "block.bettas.ledbarlow": "Low Tank LED Bar",
+  "block.bettas.ledbarhigh": "High Tank LED Bar",
+  "block.bettas.ledbarwall": "Wall-Mount Tank LED Bar",
 
   "itemGroup.tank_tab": "Bettas & Aquatics: Decor",
   "itemGroup.betta_tab": "DragN's Bettas & Aquatics"
