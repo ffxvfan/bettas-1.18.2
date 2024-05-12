@@ -1,0 +1,80 @@
+{
+	"credit": "DragN0007",
+	"textures": {
+		"0": "bettas:blocks/dino_skull",
+		"particle": "bettas:blocks/dino_skull"
+	},
+	"elements": [
+		{
+			"from": [5.6, 0.3, 2.5],
+			"to": [9.9, 4.9, 5.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0.3, 3]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 5], "texture": "#0"},
+				"east": {"uv": [8, 10, 11, 15], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 5], "texture": "#0"},
+				"west": {"uv": [11, 10, 14, 15], "texture": "#0"},
+				"up": {"uv": [16, 3, 12, 0], "texture": "#0"},
+				"down": {"uv": [16, 3, 12, 6], "texture": "#0"}
+			}
+		},
+		{
+			"from": [1.9, 0.3, 2.2],
+			"to": [6, 5.2, 5.8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0.3, 3]},
+			"faces": {
+				"north": {"uv": [0, 5, 4, 10], "texture": "#0"},
+				"east": {"uv": [4, 5, 8, 10], "texture": "#0"},
+				"south": {"uv": [8, 0, 12, 5], "texture": "#0"},
+				"west": {"uv": [8, 5, 12, 10], "texture": "#0"},
+				"up": {"uv": [4, 14, 0, 10], "texture": "#0"},
+				"down": {"uv": [8, 10, 4, 14], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [1.75, 1.5, 3],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [1.75, 1.5, 3],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"translation": [2.75, 5.75, 2],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 45, 0],
+			"translation": [2.75, 5.75, 4],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"rotation": [0, 45, 0],
+			"translation": [2.75, 5.75, 2],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"translation": [-2.5, 2.5, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"rotation": [0, 45, 0],
+			"translation": [2.75, 5.75, 2],
+			"scale": [0.4, 0.4, 0.4]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	]
+}

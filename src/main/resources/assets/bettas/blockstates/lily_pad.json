@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettas:block/lily_pad",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettas:block/lily_pad"
+    },
+    "facing=south": {
+      "model": "bettas:block/lily_pad",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettas:block/lily_pad",
+      "y": 270
+    }
+  }
+}

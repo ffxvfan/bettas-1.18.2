@@ -122,7 +122,7 @@ public class BettasMain {
 
     public static final RegistryObject<Tank> TANK = BLOCKS.register("tank", Tank::new);
     static {
-        final String[] plainDecor = {"big_log", "filter", "heater", "large_rock", "medium_rock", "small_log", "small_rock", "shipwreck", "mossball_1", "mossball_2", "mini_castle"};
+        final String[] plainDecor = {"big_log", "filter", "heater", "large_rock", "medium_rock", "small_log", "small_rock", "shipwreck", "mossball_1", "mossball_2", "mini_castle", "duckweed", "dino_skull", "volcano", "leaf_hammock"};
         for(String name : plainDecor) {
             BLOCKS.register(name, Decor::new);
         }
@@ -136,6 +136,7 @@ public class BettasMain {
         BLOCKS.register("tube_coral_fan", () -> new Decor.Vanilla(Items.TUBE_CORAL_FAN));
         BLOCKS.register("fire_coral_fan", () -> new Decor.Vanilla(Items.FIRE_CORAL_FAN));
         BLOCKS.register("sea_pickle", () -> new Decor.Vanilla(Items.SEA_PICKLE));
+        BLOCKS.register("lily_pad", () -> new Decor.Vanilla(Items.LILY_PAD));
     }
 
 

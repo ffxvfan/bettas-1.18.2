@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettas:block/duckweed",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettas:block/duckweed"
+    },
+    "facing=south": {
+      "model": "bettas:block/duckweed",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettas:block/duckweed",
+      "y": 270
+    }
+  }
+}

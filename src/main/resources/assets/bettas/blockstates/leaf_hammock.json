@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bettas:block/leaf_hammock",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bettas:block/leaf_hammock"
+    },
+    "facing=south": {
+      "model": "bettas:block/leaf_hammock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bettas:block/leaf_hammock",
+      "y": 270
+    }
+  }
+}
