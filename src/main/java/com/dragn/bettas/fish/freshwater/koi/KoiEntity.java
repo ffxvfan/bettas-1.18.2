@@ -9,7 +9,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
@@ -59,20 +58,9 @@ public class KoiEntity extends AbstractSchoolingFish implements IAnimatable {
         return 8;
     }
 
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.SALMON_AMBIENT;
-    }
-
-    protected SoundEvent getDeathSound() {
-        return SoundEvents.SALMON_DEATH;
-    }
-
-    protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-        return SoundEvents.SALMON_HURT;
-    }
-
+    @Override
     protected SoundEvent getFlopSound() {
-        return SoundEvents.SALMON_FLOP;
+        return SoundEvents.TROPICAL_FISH_FLOP;
     }
 
 

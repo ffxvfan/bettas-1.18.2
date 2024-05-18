@@ -7,8 +7,8 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
@@ -62,20 +62,9 @@ public class FilefishEntity extends AbstractFish implements IAnimatable {
                 && level.getBlockState(pos.south()).is(Blocks.WATER);
     }
 
-    protected SoundEvent getAmbientSound() {
-        return null;
-    }
-
-    protected SoundEvent getDeathSound() {
-        return null;
-    }
-
-    protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
-        return null;
-    }
-
+    @Override
     protected SoundEvent getFlopSound() {
-        return null;
+        return SoundEvents.TROPICAL_FISH_FLOP;
     }
 
 
