@@ -10,10 +10,12 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.block.Blocks;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
 import software.bernie.geckolib3.core.builder.AnimationBuilder;
+import software.bernie.geckolib3.core.builder.ILoopType;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
@@ -82,10 +85,19 @@ public class BettaEntity extends AbstractFish implements IAnimatable {
         this.noCulling = true;
     }
 
+    public static AttributeSupplier.Builder createAttributes() {
+        return Mob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 4)
+                .add(Attributes.ATTACK_DAMAGE, 0.5)
+                .add(Attributes.KNOCKBACK_RESISTANCE, 0.9)
+                ;}
+
     @Override
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(0, new RandomSwimmingGoal(this, 1d, 10));
+        this.goalSelector.addGoal(1, new RandomSwimmingGoal(this, 1d, 10));
+        this.goalSelector.addGoal(  0, new NearestAttackableTargetGoal<BettaEntity>(this, BettaEntity.class, 35, true, true, LivingEntity::attackable));
+        this.goalSelector.addGoal(  0, new MeleeAttackGoal(this, 2, true));
     }
 
     @Override
@@ -111,12 +123,17 @@ public class BettaEntity extends AbstractFish implements IAnimatable {
         return 1;
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if(event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().loop("swim"));
-        } else {
-            event.getController().setAnimation(new AnimationBuilder().loop("idle"));
-        }
+    private <E extends IAnimatable>PlayState predicate(AnimationEvent<E> event) {
+
+        if (event.isMoving()) {
+            if (isAggressive()) {
+                event.getController().setAnimation(new AnimationBuilder().addAnimation("aggressive", ILoopType.EDefaultLoopTypes.LOOP));
+
+            } else
+                event.getController().setAnimation(new AnimationBuilder().addAnimation("swim", ILoopType.EDefaultLoopTypes.LOOP));
+        } else
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", ILoopType.EDefaultLoopTypes.LOOP));
+
         return PlayState.CONTINUE;
     }
 

@@ -1,8 +1,22 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"idle": {
+		"aggressive": {
 			"loop": true,
+			"bones": {
+				"Gill1": {
+					"rotation": {
+						"vector": [0, 80, 0]
+					}
+				},
+				"Gill2": {
+					"rotation": {
+						"vector": [0, -80, 0]
+					}
+				}
+			}
+		},
+		"idle": {
 			"animation_length": 3,
 			"bones": {
 				"PectoralF1": {
@@ -111,7 +125,6 @@
 			}
 		},
 		"swim": {
-			"loop": true,
 			"animation_length": 1,
 			"bones": {
 				"PectoralF1": {
