@@ -58,6 +58,11 @@ public class IsopodEntity extends AbstractFish implements IAnimatable {
                 .add(Attributes.MOVEMENT_SPEED, 5d);
     }
 
+    @Override
+    public float getStepHeight() {
+        return 1f;
+    }
+
     static class SnailMovementController extends MoveControl {
 
         public SnailMovementController(Mob mob) {

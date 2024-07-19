@@ -58,6 +58,11 @@ public class CrystalShrimpEntity extends AbstractFish implements IAnimatable {
                 .add(Attributes.MOVEMENT_SPEED, 4d);
     }
 
+    @Override
+    public float getStepHeight() {
+        return 1f;
+    }
+
     static class SnailMovementController extends MoveControl {
 
         public SnailMovementController(Mob mob) {

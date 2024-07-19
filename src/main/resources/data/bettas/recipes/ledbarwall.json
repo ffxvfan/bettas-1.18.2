@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BAB",
+    "BBB"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:glow_ink_sac"
+    },
+    "B": {
+      "item": "minecraft:iron_nugget"
+    }
+
+  },
+  "result": {
+    "item": "bettas:ledbarwall",
+    "count": 1
+  }
+}

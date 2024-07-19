@@ -57,6 +57,11 @@ public class SeaStarEntity extends AbstractFish implements IAnimatable {
                 .add(Attributes.KNOCKBACK_RESISTANCE, 1d);
     }
 
+    @Override
+    public float getStepHeight() {
+        return 1f;
+    }
+
     static class SeaStarMovementController extends MoveControl {
 
         public SeaStarMovementController(Mob mob) {

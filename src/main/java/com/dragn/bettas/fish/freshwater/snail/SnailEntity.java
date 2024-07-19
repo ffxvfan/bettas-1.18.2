@@ -50,6 +50,11 @@ public class SnailEntity extends AbstractFish implements IAnimatable {
                 && level.getBlockState(pos.south()).is(Blocks.WATER);
     }
 
+    @Override
+    public float getStepHeight() {
+        return 1f;
+    }
+
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 3d)
                 .add(Attributes.MOVEMENT_SPEED, 1d);
